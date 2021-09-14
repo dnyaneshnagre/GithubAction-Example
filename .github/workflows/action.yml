@@ -16,4 +16,3 @@ jobs:
           apikey: ${{env.apikey}}
           apisecret: ${{env.apisecret}}
           testid: ${{env.testid}}
-
