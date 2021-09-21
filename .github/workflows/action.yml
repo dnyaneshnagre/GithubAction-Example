@@ -5,7 +5,7 @@ env:
   testid: '9535257'
   workspaceid: '838258'
   datamodelid: 'eea55ef1-2eab-bf2d-f10e-8ecb2668c7d9'
-  modeldata: '{"name":"test35", "email":"test35@test35.com", "id":"12", "age":"40"}'
+  modeldata: '{"name":"test35", "email":"test35@test35.com", "id":"12", "age":"26"}'
 on: push
 jobs:
   run-existing-test:
