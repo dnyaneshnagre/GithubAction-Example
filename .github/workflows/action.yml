@@ -3,6 +3,9 @@ env:
   apikey: '38e53fd821771b102b5bfddc'
   apisecret: 'c9fb4b4be583657d952d3d25103b28590811e7b0f43bf8d7d9107b6345ae752f15a21d50'
   testid: '9535257'
+  workspaceid: '838258'
+  datamodelid: 'eea55ef1-2eab-bf2d-f10e-8ecb2668c7d9'
+  modeldata: '{"name":"test35", "email":"test35@test35.com", "id":"007", "age":"56"}'
 on: push
 jobs:
   run-existing-test:
@@ -16,4 +19,8 @@ jobs:
           apikey: ${{env.apikey}}
           apisecret: ${{env.apisecret}}
           testid: ${{env.testid}}
+          workspaceid: ${{env.workspaceid}}
+          datamodelid: ${{env.datamodelid}}
+          modeldata: ${{env.modeldata}}
+          
 
