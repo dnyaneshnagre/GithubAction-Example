@@ -19,6 +19,8 @@ jobs:
           apikey: ${{env.apikey}}
           apisecret: ${{env.apisecret}}
           testid: ${{env.testid}}
-
+          workspaceid: ${{env.workspaceid}}
+          datamodelid: ${{env.datamodelid}}
+          modeldata: ${{env.modeldata}}
           
 
