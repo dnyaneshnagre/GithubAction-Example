@@ -5,7 +5,7 @@ env:
   testid: "9874872"
   workspaceid: "872110"
   datamodelid: "65ab3579-70d7-f558-48b9-f7eab72bb9a1"
-  modeldata: '{"password":"123456","email":"test@mailinator.com"}'
+  modeldata: '{"password":"APIStrong12345","email":"apistrongtester@mailinator.com"}'
 on: push
 jobs:
   run-existing-test:
