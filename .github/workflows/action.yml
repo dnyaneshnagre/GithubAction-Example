@@ -21,6 +21,6 @@ jobs:
           testid: ${{env.testid}}
           workspaceid: ${{env.workspaceid}}
           datamodelid: ${{env.datamodelid}}
-          modeldata: ${{ toJSON(${{env.modeldata}}) }}
+          modeldata: ${{ toJSON(env.modeldata) }}
           
           
