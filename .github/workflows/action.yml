@@ -2,10 +2,10 @@ name: run-blazemeter-test-actions-workflow
 env:
   apikey: "673e0985b554e480881605e1"
   apisecret: "c9dbf4089ebff1d4d484367b8061a2312b29902cfb3ca928914c90853aac0de7c9249d26"
-  testid: "9992721"
+  testid: "9997493"
   workspaceid: "872110"
-  datamodelid: "0ee7db34-1ab6-5a0f-319d-a2cb7b95f191"
-  modeldata: "{'email': 'test123@mailinator.com', 'password': '123456123'}"
+  datamodelid: "a820b392-eb9f-60bf-49c9-7514bdc994c0"
+  modeldata: "{'email': 'test@mailinator.com', 'password': '123456'}"
 on: push
 jobs:
   run-existing-test:
