@@ -5,7 +5,7 @@ env:
   testid: "9997493"
   workspaceid: "872110"
   datamodelid: "a820b392-eb9f-60bf-49c9-7514bdc994c0"
-  modeldata: "{'email': 'test@mailinator.com', 'password': '123456'}"
+  modeldata: "{'email': 'test123@mailinator.com', 'password': '123456123'}"
 on: push
 jobs:
   run-existing-test:
