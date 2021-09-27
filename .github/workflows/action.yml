@@ -22,4 +22,3 @@ jobs:
           workspaceid: ${{env.workspaceid}}
           datamodelid: ${{env.datamodelid}}
           modeldata: ${{ toJSON(env.modeldata) }}
-          
