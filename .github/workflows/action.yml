@@ -14,9 +14,6 @@ on: push
 jobs:
   run-existing-test:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: src
     steps:    
       - name: Test 1
         run: ls -a
