@@ -19,9 +19,9 @@ jobs:
         #working-directory: ./src
         run: |
           pwd
-          ls -a /home/
-          ls -a /home/runner/
-          ls -a /home/runner/work/
+          ls -a /home/runner/work/GithubAction-Example
+          ls -a /home/runner/work/_actions
+          ls -a /home/runner/work/_temp
       - name: Run Blazemeter test
         #uses: ./ # Uses an action in the root directory
         uses:  dnyanehblazerunner/BlazeAction@v3
