@@ -17,9 +17,10 @@ jobs:
     env:
       working-directory: ./src
     steps:    
-      - name: Run Blazemeter test
+      - name: Test 1
         run: ls -a
         working-directory: ${{env.working-directory}}
+      - name: Run Blazemeter test
         #uses: ./ # Uses an action in the root directory
         uses:  dnyanehblazerunner/BlazeAction@v3
         id: run-test
