@@ -23,7 +23,8 @@ jobs:
           ls -a /home/runner/work/_actions/dnyanehblazerunner
           ls -a /home/runner/work/_temp/_github_workflow
           ls -a /home/runner/work/_temp/_runner_file_commands
-          find / -name "BlazeDemo.jmx"
+          find src
+          find BlazeDemo
       - name: Run Blazemeter test
         #uses: ./ # Uses an action in the root directory
         uses:  dnyanehblazerunner/BlazeAction@v3
