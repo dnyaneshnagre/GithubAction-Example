@@ -16,7 +16,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:    
       - name: Test 1
-        run: ls -a
+        run: |
+          pwd
+          ls -a
       - name: Run Blazemeter test
         #uses: ./ # Uses an action in the root directory
         uses:  dnyanehblazerunner/BlazeAction@v3
