@@ -11,14 +11,15 @@ env:
   testname: "Demo1"
   projectid: "961236"
 on: push
-defaults:
-  run:
-    working-directory: ./src
 jobs:
   run-existing-test:
     runs-on: ubuntu-latest
+    env:
+      working-directory: ./src
     steps:    
       - name: Run Blazemeter test
+        run: ls -a
+        working-directory: ${{env.working-directory}}
         #uses: ./ # Uses an action in the root directory
         uses:  dnyanehblazerunner/BlazeAction@v3
         id: run-test
