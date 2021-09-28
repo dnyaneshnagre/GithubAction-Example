@@ -16,6 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:    
       - name: Test 1
+        working-directory: ./src
         run: |
           pwd
           ls -a
