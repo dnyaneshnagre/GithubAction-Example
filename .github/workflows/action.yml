@@ -23,4 +23,3 @@ jobs:
           #datamodelid: ${{env.datamodelid}}
           #modeldata: ${{ toJSON(env.modeldata) }}
           
-
