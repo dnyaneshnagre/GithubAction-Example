@@ -14,11 +14,11 @@ on: push
 jobs:
   run-existing-test:
     runs-on: ubuntu-latest
-    env:
-      working-directory: src
+    defaults:
+      run:
+        working-directory: src
     steps:    
       - name: Test 1
-        working-directory: ${{env.working-directory}}
         run: ls -a
       - name: Run Blazemeter test
         #uses: ./ # Uses an action in the root directory
