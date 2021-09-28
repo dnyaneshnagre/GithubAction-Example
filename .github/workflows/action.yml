@@ -18,7 +18,7 @@ jobs:
       - name: Test 1
         run: pwd
       - name: Test 2
-        run: "ls -a"
+        run: ls -a ../
       - name: Run Blazemeter test
         #uses: ./ # Uses an action in the root directory
         uses:  dnyanehblazerunner/BlazeAction@v3
