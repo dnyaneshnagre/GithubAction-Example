@@ -16,10 +16,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:    
       - name: Test 1
-        working-directory: ./src
+        #working-directory: ./src
         run: |
           pwd
           ls -a
+          echo ${{github.workspace}}
       - name: Run Blazemeter test
         #uses: ./ # Uses an action in the root directory
         uses:  dnyanehblazerunner/BlazeAction@v3
