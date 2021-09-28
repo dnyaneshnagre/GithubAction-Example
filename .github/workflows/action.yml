@@ -11,6 +11,9 @@ env:
   testname: "Demo1"
   projectid: "961236"
 on: push
+defaults:
+  run:
+    working-directory: ./src
 jobs:
   run-existing-test:
     runs-on: ubuntu-latest
