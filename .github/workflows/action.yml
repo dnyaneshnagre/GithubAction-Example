@@ -31,7 +31,7 @@ jobs:
           apisecret: ${{env.apisecret}}
           testid: ${{env.testid}}
 #           createtest: ${{env.createtest}}
-          inputstartfile: ${{env.inputstartfile}}
+#           inputstartfile: ${{env.inputstartfile}}
           testname: ${{env.testname}}
           projectid: ${{env.projectid}}
           workspaceid: ${{env.workspaceid}}
