@@ -21,7 +21,8 @@ jobs:
         #working-directory: ./src
         run: |
           pwd
-          ls
+          ls /github/workspace/
+          ls /github/workspace/Supporting Files/
       - name: Run Blazemeter test
         #uses: ./ # Uses an action in the root directory
         uses:  dnyanehblazerunner/BlazeAction@v3
