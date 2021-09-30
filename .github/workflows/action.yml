@@ -8,7 +8,7 @@ env:
   modeldata: '{"email": "\"test@mailinator.com\"", "password": "\"123456\"", "asserttext": "\"Thank you for your purchase today failed!\""}'
   createtest: "true"
   inputstartfile: "BlazeDemoTest.jmx"
-  testname: "GithubActionTest"
+  testname: "GithubActionTest-2"
   projectid: "961236"
 on: push
 jobs:
