@@ -36,6 +36,6 @@ jobs:
           projectid: ${{env.projectid}}
           workspaceid: ${{env.workspaceid}}
           datamodelid: ${{env.datamodelid}}
-#           modeldata: ${{ toJSON(env.modeldata) }}
+          modeldata: ${{ toJSON(env.modeldata) }}
           
 
