@@ -30,12 +30,12 @@ jobs:
           apikey: ${{env.apikey}}
           apisecret: ${{env.apisecret}}
           testid: ${{env.testid}}
-          createtest: ${{env.createtest}}
+#           createtest: ${{env.createtest}}
           inputstartfile: ${{env.inputstartfile}}
           testname: ${{env.testname}}
           projectid: ${{env.projectid}}
           workspaceid: ${{env.workspaceid}}
           datamodelid: ${{env.datamodelid}}
-          modeldata: ${{ toJSON(env.modeldata) }}
+#           modeldata: ${{ toJSON(env.modeldata) }}
           
 
