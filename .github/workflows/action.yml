@@ -6,7 +6,7 @@ env:
   workspaceid: "838258"
   datamodelid: "8df6aaaf-d1ac-56a1-a2d5-bba0ecbabff9"
   modeldata: '{"email": "\"test@mailinator.com\"", "password": "\"123456\"", "asserttext": "\"Thank you for your purchase today failed!\""}'
-  createtest: "true"
+  createtest: "false"
   inputstartfile: "BlazeDemoTest.jmx"
   testname: "GithubActionTest 6"
   projectid: "961236"
