@@ -32,10 +32,10 @@ jobs:
           testid: ${{env.testid}}
 #           createtest: ${{env.createtest}}
 #           inputstartfile: ${{env.inputstartfile}}
-          testname: ${{env.testname}}
-          projectid: ${{env.projectid}}
-          workspaceid: ${{env.workspaceid}}
-          datamodelid: ${{env.datamodelid}}
+#           testname: ${{env.testname}}
+#           projectid: ${{env.projectid}}
+#           workspaceid: ${{env.workspaceid}}
+#           datamodelid: ${{env.datamodelid}}
 #           modeldata: ${{ toJSON(env.modeldata) }}
           
 
