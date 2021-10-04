@@ -3,25 +3,25 @@ env:
   apikey: "38e53fd821771b102b5bfddc"
   apisecret: "c9fb4b4be583657d952d3d25103b28590811e7b0f43bf8d7d9107b6345ae752f15a21d50"
   testid: "9997714" # P 9997714 F 9998412 
-  workspaceid: "838258"
-  datamodelid: "8df6aaaf-d1ac-56a1-a2d5-bba0ecbabff9"
-  modeldata: '{"email": "\"test@mailinator.com\"", "password": "\"123456\"", "asserttext": "\"Thank you for your purchase today failed!\""}'
-  createtest: "true"
-  inputstartfile: "BlazeDemoTest_1.jmx"
-  testname: "GithubAction-D01"
-  projectid: "961236"
+#   workspaceid: "838258"
+#   datamodelid: "8df6aaaf-d1ac-56a1-a2d5-bba0ecbabff9"
+#   modeldata: '{"email": "\"test@mailinator.com\"", "password": "\"123456\"", "asserttext": "\"Thank you for your purchase today failed!\""}'
+#   createtest: "true"
+#   inputstartfile: "BlazeDemoTest_1.jmx"
+#   testname: "GithubAction-D01"
+#   projectid: "961236"
 on: push
 jobs:
   run-existing-test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2.3.4
-      - name: Test 1
-        #working-directory: ./src
-        run: |
-          pwd
-          ls
+#       - name: Checkout
+#         uses: actions/checkout@v2.3.4
+#       - name: Test 1
+#         #working-directory: ./src
+#         run: |
+#           pwd
+#           ls
       - name: Run Blazemeter test
         #uses: ./ # Uses an action in the root directory
         uses:  dnyanehblazerunner/BlazeAction@v3
@@ -30,12 +30,12 @@ jobs:
           apikey: ${{env.apikey}}
           apisecret: ${{env.apisecret}}
           testid: ${{env.testid}}
-          createtest: ${{env.createtest}}
-          inputstartfile: ${{env.inputstartfile}}
-          testname: ${{env.testname}}
-          projectid: ${{env.projectid}}
-          workspaceid: ${{env.workspaceid}}
-          datamodelid: ${{env.datamodelid}}
-          modeldata: ${{ toJSON(env.modeldata) }}
+#           createtest: ${{env.createtest}}
+#           inputstartfile: ${{env.inputstartfile}}
+#           testname: ${{env.testname}}
+#           projectid: ${{env.projectid}}
+#           workspaceid: ${{env.workspaceid}}
+#           datamodelid: ${{env.datamodelid}}
+#           modeldata: ${{ toJSON(env.modeldata) }}
           
 
