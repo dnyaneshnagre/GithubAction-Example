@@ -24,13 +24,13 @@ jobs:
         with:
           apikey: ${{env.apikey}}
           apisecret: ${{env.apisecret}}
-          testid: ${{env.testid}}
-          workspaceid: ${{env.workspaceid}}
-          datamodelid: ${{env.datamodelid}}
-          modeldata: ${{ toJSON(env.modeldata) }}
-#           createtest: ${{env.createtest}}
-#           inputstartfile: ${{env.inputstartfile}}
-#           testname: ${{env.testname}}
-#           projectid: ${{env.projectid}}
+#           testid: ${{env.testid}}
+#           workspaceid: ${{env.workspaceid}}
+#           datamodelid: ${{env.datamodelid}}
+#           modeldata: ${{ toJSON(env.modeldata) }}
+          createtest: ${{env.createtest}}
+          inputstartfile: ${{env.inputstartfile}}
+          testname: ${{env.testname}}
+          projectid: ${{env.projectid}}
 
           
