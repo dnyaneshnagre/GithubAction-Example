@@ -6,7 +6,7 @@ env:
   workspaceid: "838258" #not required
   datamodelid: "8df6aaaf-d1ac-56a1-a2d5-bba0ecbabff9" #not required
 #   modeldata: '{"email": "\"test@mailinator.com\"", "password": "\"123456\"", "asserttext": "\"Thank you for your purchase today!\""}'
-  modeldata: '{"url": "\"https://blazedemo.com/\""}'
+  modeldata: '{"url": "\"https://blazedemo123.com/\""}'
   createtest: "false"
   inputstartfile: "BlazeDemoTest_1.jmx"
   testname: "GithubAction-D03"
