@@ -11,7 +11,7 @@ env:
   inputstartfile: "BlazeDemoTest_1.jmx"
   testname: "GithubAction-D03"
   projectid: "961236"
-  jmeterproperties: "test=test123"
+  jmeterproperties: "test=testnew123"
 on: push
 jobs:
   run-existing-test:
