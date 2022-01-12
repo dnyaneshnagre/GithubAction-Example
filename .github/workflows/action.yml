@@ -9,9 +9,9 @@ env:
   modeldata: '{"url": "\"https://blazedemo123.com/\""}'
   createtest: "true"
   inputstartfile: "BlazeDemoTest_1.jmx"
-  testname: "GithubAction-D06"
+  testname: "GithubAction-D07"
   projectid: "961236"
-  #jmeterproperties: "test=testnew123"
+  jmeterproperties: "test=testnew123"
 on: push
 jobs:
   run-existing-test:
@@ -29,7 +29,7 @@ jobs:
           #testid: ${{env.testid}}
           #modeldata: ${{ toJSON(env.modeldata) }}
           continuepipeline: "false"
-          #jmeterproperties: ${{env.jmeterproperties}}
+          jmeterproperties: ${{env.jmeterproperties}}
           createtest: ${{env.createtest}}
           inputstartfile: ${{env.inputstartfile}}
           testname: ${{env.testname}}
