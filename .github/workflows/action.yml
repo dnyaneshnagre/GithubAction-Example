@@ -7,7 +7,7 @@ env:
   datamodelid: "8df6aaaf-d1ac-56a1-a2d5-bba0ecbabff9" #not required
 #   modeldata: '{"email": "\"test@mailinator.com\"", "password": "\"123456\""}'
   modeldata: '{"url": "\"https://blazedemo123.com/\""}'
-  createtest: "false"
+  createtest: "true"
   inputstartfile: "BlazeDemoTest_1.jmx"
   testname: "GithubAction-D06"
   projectid: "961236"
