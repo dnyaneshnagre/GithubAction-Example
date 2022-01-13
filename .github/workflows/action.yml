@@ -12,7 +12,7 @@ env:
   #testname: "GithubAction-D08"
   #projectid: "961236"
   showtaillog: "false"
-  jmeterproperties: "test=githubaction123,test1=githubaction2,test2=githubaction3"
+  #jmeterproperties: "test=githubaction123,test1=githubaction2,test2=githubaction3"
 on: push
 jobs:
   run-existing-test:
@@ -30,7 +30,7 @@ jobs:
           testid: ${{env.testid}}
           #modeldata: ${{ toJSON(env.modeldata) }}
           continuepipeline: "false"
-          jmeterproperties: ${{env.jmeterproperties}}
+          #jmeterproperties: ${{env.jmeterproperties}}
           #createtest: ${{env.createtest}}
           #inputstartfile: ${{env.inputstartfile}}
           #testname: ${{env.testname}}
