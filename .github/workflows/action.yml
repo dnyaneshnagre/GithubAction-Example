@@ -6,12 +6,12 @@ env:
   workspaceid: "838258" #not required
   datamodelid: "8df6aaaf-d1ac-56a1-a2d5-bba0ecbabff9" #not required
 #   modeldata: '{"email": "\"test@mailinator.com\"", "password": "\"123456\""}'
-  modeldata: '{"url": "\"https://blazedemo123.com/\""}'
+  #modeldata: '{"url": "\"https://blazedemo123.com/\""}'
   createtest: "true"
   inputstartfile: "BlazeDemoTest_1.jmx"
-  testname: "GithubAction-D07"
+  testname: "GithubAction-D08"
   projectid: "961236"
-  jmeterproperties: "test=testnew123"
+  #jmeterproperties: "test=testnew123"
 on: push
 jobs:
   run-existing-test:
@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v2.3.4
       - name: Run Blazemeter test
         #uses: ./ # Uses an action in the root directory
-        uses:  dnyanehblazerunner/BlazeAction@v7
+        uses: dnyanehblazerunner/BlazeAction@v7.1
         id: run-test
         with:
           apikey: ${{env.apikey}}
@@ -29,7 +29,7 @@ jobs:
           #testid: ${{env.testid}}
           #modeldata: ${{ toJSON(env.modeldata) }}
           continuepipeline: "false"
-          jmeterproperties: ${{env.jmeterproperties}}
+          #jmeterproperties: ${{env.jmeterproperties}}
           createtest: ${{env.createtest}}
           inputstartfile: ${{env.inputstartfile}}
           testname: ${{env.testname}}
