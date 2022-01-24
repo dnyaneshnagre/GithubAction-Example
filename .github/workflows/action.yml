@@ -9,7 +9,7 @@ env:
   #modeldata: '{"url": "\"https://blazedemo123.com/\""}'
   createtest: "true"
   inputstartfile: "BlazeDemoTest_1.jmx"
-  testname: "GithubAction-D11"
+  testname: "GithubAction-D12"
   projectid: "961236"
   showtaillog: "false"
   #jmeterproperties: "test=githubaction123,test1=githubaction2,test2=githubaction3"
