@@ -2,15 +2,15 @@ name: run-blazemeter-test-actions-workflow
 env:
   apikey: "38e53fd821771b102b5bfddc"
   apisecret: "c9fb4b4be583657d952d3d25103b28590811e7b0f43bf8d7d9107b6345ae752f15a21d50"
-  #testid: "10490213" #"10486100" # P 10127108 F 10129962 
+  testid: "10490213" #"10486100" # P 10127108 F 10129962 
   workspaceid: "838258" #not required
   #datamodelid: "8df6aaaf-d1ac-56a1-a2d5-bba0ecbabff9" #not required
 #   modeldata: '{"email": "\"test@mailinator.com\"", "password": "\"123456\""}'
   #modeldata: '{"url": "\"https://blazedemo123.com/\""}'
-  createtest: "true"
-  inputstartfile: "BlazeDemoTest_1.jmx"
-  testname: "GithubAction-D12"
-  projectid: "961236"
+  #createtest: "true"
+  #inputstartfile: "BlazeDemoTest_1.jmx"
+  #testname: "GithubAction-D12"
+  #projectid: "961236"
   showtaillog: "false"
   #jmeterproperties: "test=githubaction123,test1=githubaction2,test2=githubaction3"
 on: push
@@ -31,10 +31,10 @@ jobs:
           #modeldata: ${{ toJSON(env.modeldata) }}
           continuepipeline: "false"
           #jmeterproperties: ${{env.jmeterproperties}}
-          createtest: ${{env.createtest}}
-          inputstartfile: ${{env.inputstartfile}}
-          testname: ${{env.testname}}
-          projectid: ${{env.projectid}}
+          #createtest: ${{env.createtest}}
+          #inputstartfile: ${{env.inputstartfile}}
+          #testname: ${{env.testname}}
+          #projectid: ${{env.projectid}}
           showtaillog: ${{env.showtaillog}}
 
 
