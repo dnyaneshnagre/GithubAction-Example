@@ -31,10 +31,10 @@ jobs:
           #modeldata: ${{ toJSON(env.modeldata) }}
           continuepipeline: "false"
           #jmeterproperties: ${{env.jmeterproperties}}
-          #createtest: ${{env.createtest}}
-          #inputstartfile: ${{env.inputstartfile}}
-          #testname: ${{env.testname}}
-          #projectid: ${{env.projectid}}
+          createtest: ${{env.createtest}}
+          inputstartfile: ${{env.inputstartfile}}
+          testname: ${{env.testname}}
+          projectid: ${{env.projectid}}
           showtaillog: ${{env.showtaillog}}
 
 
