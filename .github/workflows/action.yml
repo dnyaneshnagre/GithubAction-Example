@@ -15,13 +15,13 @@ env:
   # create new test
   createtest: "true"
   inputstartfile: BlazeDemo.yaml #"BlazeDemoTest_1.jmx"
-  testname: "GithubAction-D16"
+  testname: "GithubAction-D17"
   projectid: "961236"
   
   # Upload Dependencies / Update Yaml
   #inputallfiles: ""
   #Uploadfilechk: "true"
-  env_variable: '{"bearer":"qweqweqenlqelehqheqlheqwheqhe"}'
+  env_variable: '{"bearer": "\"wewrerrotorhthtre\""}'
 
   # jmeter properties
   #jmeterproperties: "test=githubaction123,test1=githubaction2,test2=githubaction3"
