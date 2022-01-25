@@ -43,7 +43,7 @@ jobs:
         with:
           apikey: ${{env.apikey}}
           apisecret: ${{env.apisecret}}
-          testid: ${{env.testid}}
+          #testid: ${{env.testid}}
           showtaillog: ${{env.showtaillog}}
           #modeldata: ${{ toJSON(env.modeldata) }}
           #continuepipeline: ${{env.ContinuePipeline}}
