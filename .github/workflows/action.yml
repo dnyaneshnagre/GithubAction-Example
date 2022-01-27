@@ -15,7 +15,7 @@ env:
   # create new test
   createtest: "true"
   inputstartfile: BlazeDemo.yaml #"BlazeDemoTest_1.jmx"
-  testname: "GithubAction-D20"
+  testname: "GithubAction-D21"
   projectid: "961236"
   
   # Upload Dependencies / Update Yaml
@@ -39,7 +39,7 @@ jobs:
       - name: create Blazemeter Test
         #uses: ./ # Uses an action in the root directory
         uses: dnyanehblazerunner/BlazeAction@v7.3
-        id: run-test
+        id: create-test
         with:
           apikey: ${{env.apikey}}
           apisecret: ${{env.apisecret}}
