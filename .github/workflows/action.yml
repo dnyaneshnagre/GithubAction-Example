@@ -9,19 +9,19 @@ env:
   
   #workspaceid: "838258" #not required
   #datamodelid: "8df6aaaf-d1ac-56a1-a2d5-bba0ecbabff9" #not required
-  #modeldata: '{"email": "\"test@mailinator.com\"", "password": "\"123456\""}'
+  #modeldata: '{"email": "\"test@mailinator.com\"", "password": "\"123456\"", ""}'
   #modeldata: '{"url": "\"https://blazedemo123.com/\""}'
 
   # create new test
   createtest: "true"
   inputstartfile: BlazeDemo.yaml #"BlazeDemoTest_1.jmx"
-  testname: "GithubAction-D22"
+  testname: "GithubAction-D25"
   projectid: "961236"
   
   # Upload Dependencies / Update Yaml
   #inputallfiles: ""
   #Uploadfilechk: "true"
-  env_variable: '{"username": "\"dyn\"","password": "\"dyn123\""}'
+  env_variable: '{"username": "\"dyn\"","password": "\"dyn123\"", "bearer": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c\""}'
 
   # jmeter properties
   #jmeterproperties: "test=githubaction123,test1=githubaction2,test2=githubaction3"
