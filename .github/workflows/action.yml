@@ -15,7 +15,7 @@ env:
   # create new test
   createtest: "true"
   inputstartfile: BlazeDemo.yaml #"BlazeDemoTest_1.jmx"
-  testname: "GithubAction-D30"
+  testname: "GithubAction-D31"
   projectid: "961236"
   
   # Upload Dependencies / Update Yaml
