@@ -4,7 +4,7 @@ env:
   apisecret: "c9fb4b4be583657d952d3d25103b28590811e7b0f43bf8d7d9107b6345ae752f15a21d50"
   
   #run existing test
-  #testid: "10541181" #"10486100" # P 10127108 F 10129962 
+  testid: "9535204" #"10541181" #"10486100" # P 10127108 F 10129962 
   showtaillog: "false"
   
   #workspaceid: "838258" #not required
@@ -13,18 +13,18 @@ env:
   #modeldata: '{"url": "\"https://blazedemo123.com/\""}'
 
   # create new test
-  createtest: "true"
-  inputstartfile: BlazeDemo.yaml #"BlazeDemoTest_1.jmx"
-  testname: "GithubAction-D51"
-  projectid: "961236"
+  #createtest: "true"
+  #inputstartfile: BlazeDemo.yaml #"BlazeDemoTest_1.jmx"
+  #testname: "GithubAction-D51"
+  #projectid: "961236"
   
   # Upload Dependencies / Update Yaml
   #inputallfiles: ""
   #Uploadfilechk: "true"
-  env_variable: '{"username": "\"dyn1\"","password": "\"dyn1234\"", "bearer": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c\""}'
+  #env_variable: '{"username": "\"dyn1\"","password": "\"dyn1234\"", "bearer": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c\""}'
 
   # jmeter properties
-  jmeterproperties: "test=githubaction123,test1=githubaction2,test2=githubaction3"
+  #jmeterproperties: "test=githubaction123,test1=githubaction2,test2=githubaction3"
   
   # Download Artifacts
   ContinuePipeline: "false"
@@ -43,17 +43,17 @@ jobs:
         with:
           apikey: ${{env.apikey}}
           apisecret: ${{env.apisecret}}
-          #testid: ${{env.testid}}
+          testid: ${{env.testid}}
           showtaillog: ${{env.showtaillog}}
           #modeldata: ${{ toJSON(env.modeldata) }}
           continuepipeline: ${{env.ContinuePipeline}}
-          jmeterproperties: ${{env.jmeterproperties}}
+          #jmeterproperties: ${{env.jmeterproperties}}
           # create new test
-          createtest: ${{env.createtest}}
-          inputstartfile: ${{env.inputstartfile}}
-          testname: ${{env.testname}}
-          projectid: ${{env.projectid}}
-          env_variable: ${{env.env_variable}}
+          #createtest: ${{env.createtest}}
+          #inputstartfile: ${{env.inputstartfile}}
+          #testname: ${{env.testname}}
+          #projectid: ${{env.projectid}}
+          #env_variable: ${{env.env_variable}}
           
 
 
