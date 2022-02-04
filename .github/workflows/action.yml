@@ -53,7 +53,7 @@ jobs:
           inputstartfile: ${{env.inputstartfile}}
           testname: ${{env.testname}}
           projectid: ${{env.projectid}}
-          env_variable: ${{env_variable}}
+          env_variable: ${{env.env_variable}}
           
 
 
