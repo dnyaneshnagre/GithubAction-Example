@@ -15,7 +15,7 @@ env:
   # create new test
   createtest: "true"
   inputstartfile: BlazeDemo.yaml #"BlazeDemoTest_1.jmx"
-  testname: "GithubAction-D52"
+  testname: "GithubAction-D55"
   projectid: "961236"
   
   # Upload Dependencies / Update Yaml
@@ -53,7 +53,7 @@ jobs:
           inputstartfile: ${{env.inputstartfile}}
           testname: ${{env.testname}}
           projectid: ${{env.projectid}}
-          env_variable: ${env_variable}
+          env_variable: ${{env.env_variable}}
           
 
 
