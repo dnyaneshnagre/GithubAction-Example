@@ -12,7 +12,7 @@ env:
   # Upload Dependencies / Update Yaml
   inputallfiles: '/github/workspace/Supporting Files'
   Uploadfilechk: "true"
-  #env_variable: '{"bearer": "\"4646464646464646464646446464644646466\""}'
+  env_variable: '{"bearer": "\"4646464646464646464646446464644646466\""}'
   
   # create new test
   createtest: "true"
