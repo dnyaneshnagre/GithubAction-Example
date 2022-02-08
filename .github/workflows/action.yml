@@ -19,8 +19,8 @@ env:
   projectid: "961236"
   
   # Upload Dependencies / Update Yaml
-  #inputallfiles: '/github/workspace/Supporting Files'
-  #Uploadfilechk: "true"
+  inputallfiles: '/github/workspace/Supporting Files'
+  Uploadfilechk: "true"
   #env_variable: '{"bearer": "\"4646464646464646464646446464644646466\""}'
 
   # jmeter properties
@@ -49,8 +49,8 @@ jobs:
           #continuepipeline: ${{env.ContinuePipeline}}
           #jmeterproperties: ${{env.jmeterproperties}}
           # create new test
-          #inputallfiles: ${{env.inputallfiles}}
-          #Uploadfilechk: ${{env.Uploadfilechk}}
+          inputallfiles: ${{env.inputallfiles}}
+          Uploadfilechk: ${{env.Uploadfilechk}}
           createtest: ${{env.createtest}}
           inputstartfile: ${{env.inputstartfile}}
           testname: ${{env.testname}}
