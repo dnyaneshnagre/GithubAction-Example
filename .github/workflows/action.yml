@@ -12,11 +12,11 @@ env:
   # Upload Dependencies / Update Yaml
   inputallfiles: '/github/workspace/Supporting Files'
   Uploadfilechk: "true"
-  env_variable: '{"bearer": "\"4646464646464646464646446464644646466\""}'
+  #env_variable: '{"bearer": "\"4646464646464646464646446464644646466\""}'
   
   # create new test
   createtest: "true"
-  inputstartfile: BlazeDemo.yaml #"BlazeDemoTest_1.jmx"
+  inputstartfile: "BlazeDemoTest_1.jmx" # "BlazeDemo.yaml" 
   testname: "GithubAction-D54-yml-file"
   projectid: "961236"
   
@@ -27,10 +27,10 @@ env:
   jmeterproperties: "test=githubaction123,test1=githubaction2,test2=githubaction3"
     
   # report name
-  reportname: "github-action-yml"
+  reportname: "github-action-jmx"
   
   # note 
-  note: "github-action-yml"
+  note: "github-action-jmx"
   
   # iterations configuration
   iterations_config: "true"
@@ -72,7 +72,7 @@ jobs:
           testname: ${{env.testname}}
           projectid: ${{env.projectid}}
           #update yml file
-          env_variable: ${{env.env_variable}}
+          #env_variable: ${{env.env_variable}}
           # added report name
           reportname: ${{env.reportname}}
           # added note
