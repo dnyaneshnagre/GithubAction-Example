@@ -4,7 +4,7 @@ env:
   apisecret: "c9fb4b4be583657d952d3d25103b28590811e7b0f43bf8d7d9107b6345ae752f15a21d50"
   
   #run existing test
-  testid: "10599501" #"10486100" # P 10127108 F 10129962 
+  testid: "10599517" #"10486100" # P 10127108 F 10129962 
   
   #display log data
   showtaillog: "false"
@@ -16,7 +16,7 @@ env:
   
   # create new test
   #createtest: "true"
-  inputstartfile: "BlazeDemo.yaml" #"BlazeDemo.jmx" 
+  inputstartfile: "BlazeDemo.jmx" #"BlazeDemo.yaml" 
   #testname: "GithubAction-D55-jmx-without_itr"
   #projectid: "961236"
   
@@ -33,8 +33,8 @@ env:
   note: "github-action-ext-jmx_without_itr"
   
   # iterations configuration
-  #iterations_config: "true"
-  #iterations: "5"
+  iterations_config: "true"
+  iterations: "10"
 
   #workspaceid: "838258" #not required
   #datamodelid: "8df6aaaf-d1ac-56a1-a2d5-bba0ecbabff9" #not required
@@ -78,7 +78,7 @@ jobs:
           # added note
           note: ${{env.note}}
           # iterations configuration
-          #iterations_config: ${{env.iterations_config}}
-          #iterations: ${{env.iterations}}
+          iterations_config: ${{env.iterations_config}}
+          iterations: ${{env.iterations}}
           #modeldata: ${{ toJSON(env.modeldata) }}
         
