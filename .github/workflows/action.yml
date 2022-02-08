@@ -5,29 +5,41 @@ env:
   
   #run existing test
   #testid: "10541181" #"10486100" # P 10127108 F 10129962 
-  showtaillog: "false"
   
-  #workspaceid: "838258" #not required
-  #datamodelid: "8df6aaaf-d1ac-56a1-a2d5-bba0ecbabff9" #not required
-  #modeldata: '{"email": "\"test@mailinator.com\"", "password": "\"123456\""}'
-  #modeldata: '{"url": "\"https://blazedemo123.com/\""}'
-
-  # create new test
-  createtest: "true"
-  inputstartfile: BlazeDemo.yaml #"BlazeDemoTest_1.jmx"
-  testname: "GithubAction-D54"
-  projectid: "961236"
+  #display log data
+  showtaillog: "false"
   
   # Upload Dependencies / Update Yaml
   inputallfiles: '/github/workspace/Supporting Files'
   Uploadfilechk: "true"
   #env_variable: '{"bearer": "\"4646464646464646464646446464644646466\""}'
-
-  # jmeter properties
-  #jmeterproperties: "test=githubaction123,test1=githubaction2,test2=githubaction3"
+  
+  # create new test
+  createtest: "true"
+  inputstartfile: BlazeDemo.yaml #"BlazeDemoTest_1.jmx"
+  testname: "GithubAction-D54-yml-file"
+  projectid: "961236"
   
   # Download Artifacts
-  #ContinuePipeline: "false"
+  ContinuePipeline: "false"
+
+  # jmeter properties
+  jmeterproperties: "test=githubaction123,test1=githubaction2,test2=githubaction3"
+    
+  # report name
+  reportname: "github-action-yml"
+  
+  # note 
+  note: "github-action-yml"
+  
+  # iterations configuration
+  iterations_config: "true"
+  iterations: "5"
+
+  #workspaceid: "838258" #not required
+  #datamodelid: "8df6aaaf-d1ac-56a1-a2d5-bba0ecbabff9" #not required
+  #modeldata: '{"email": "\"test@mailinator.com\"", "password": "\"123456\""}'
+  #modeldata: '{"url": "\"https://blazedemo123.com/\""}'
 
 on: push
 jobs:
@@ -43,17 +55,30 @@ jobs:
         with:
           apikey: ${{env.apikey}}
           apisecret: ${{env.apisecret}}
+          # run exitsing test
           #testid: ${{env.testid}}
+          # diplay log data
           showtaillog: ${{env.showtaillog}}
-          #modeldata: ${{ toJSON(env.modeldata) }}
-          #continuepipeline: ${{env.ContinuePipeline}}
-          #jmeterproperties: ${{env.jmeterproperties}}
-          # create new test
+          # Download Artifacts and show a test result 
+          ContinuePipeline: ${{env.ContinuePipeline}}
+          #added jmeter properties
+          jmeterproperties: ${{env.jmeterproperties}}
+          # Upload Dependencies
           inputallfiles: ${{env.inputallfiles}}
           Uploadfilechk: ${{env.Uploadfilechk}}
+          # create new test
           createtest: ${{env.createtest}}
           inputstartfile: ${{env.inputstartfile}}
           testname: ${{env.testname}}
           projectid: ${{env.projectid}}
-          #env_variable: ${{env.env_variable}}
+          #update yml file
+          env_variable: ${{env.env_variable}}
+          # added report name
+          reportname: ${{env.reportname}}
+          # added note
+          note: ${{env.note}}
+          # iterations configuration
+          iterations_config: ${{env.iterations_config}}
+          iterations: ${{env.iterations}}
+          #modeldata: ${{ toJSON(env.modeldata) }}
         
