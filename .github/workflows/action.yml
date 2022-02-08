@@ -20,7 +20,7 @@ env:
   
   # Upload Dependencies / Update Yaml
   #inputallfiles: '/github/workspace/Supporting Files'
-  Uploadfilechk: "true"
+  #Uploadfilechk: "true"
   #env_variable: '{"bearer": "\"4646464646464646464646446464644646466\""}'
 
   # jmeter properties
@@ -38,7 +38,7 @@ jobs:
         uses: actions/checkout@v2.3.4
       - name: Run Blazemeter test
         #uses: ./ # Uses an action in the root directory
-        uses: dnyanehblazerunner/BlazeAction@v7.8
+        uses: dnyanehblazerunner/BlazeAction@v7.5
         id: run-test
         with:
           apikey: ${{env.apikey}}
@@ -50,7 +50,7 @@ jobs:
           #jmeterproperties: ${{env.jmeterproperties}}
           # create new test
           #inputallfiles: ${{env.inputallfiles}}
-          Uploadfilechk: ${{env.Uploadfilechk}}
+          #Uploadfilechk: ${{env.Uploadfilechk}}
           createtest: ${{env.createtest}}
           inputstartfile: ${{env.inputstartfile}}
           testname: ${{env.testname}}
