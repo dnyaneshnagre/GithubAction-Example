@@ -10,31 +10,31 @@ env:
   showtaillog: "false"
   
   # Upload Dependencies / Update Yaml
-  inputallfiles: '/github/workspace/Supporting Files'
-  Uploadfilechk: "true"
+  #inputallfiles: '/github/workspace/Supporting Files'
+  #Uploadfilechk: "true"
   #env_variable: '{"bearer": "\"4646464646464646464646446464644646466\""}'
   
   # create new test
   createtest: "true"
-  inputstartfile: "BlazeDemoTest_1.jmx" # "BlazeDemo.yaml" 
-  testname: "GithubAction-D54-yml-file"
+  inputstartfile: "BlazeDemo.jmx" # "BlazeDemo.yaml" 
+  testname: "GithubAction-D55-jmx-without_itr"
   projectid: "961236"
   
   # Download Artifacts
   ContinuePipeline: "false"
 
   # jmeter properties
-  jmeterproperties: "test=githubaction123,test1=githubaction2,test2=githubaction3"
+  #jmeterproperties: "test=githubaction123,test1=githubaction2,test2=githubaction3"
     
   # report name
-  reportname: "github-action-jmx"
+  reportname: "github-action-jmx_without_itr"
   
   # note 
-  note: "github-action-jmx"
+  note: "github-action-jmx_without_itr"
   
   # iterations configuration
-  iterations_config: "true"
-  iterations: "5"
+  #iterations_config: "true"
+  #iterations: "5"
 
   #workspaceid: "838258" #not required
   #datamodelid: "8df6aaaf-d1ac-56a1-a2d5-bba0ecbabff9" #not required
@@ -62,10 +62,10 @@ jobs:
           # Download Artifacts and show a test result 
           ContinuePipeline: ${{env.ContinuePipeline}}
           #added jmeter properties
-          jmeterproperties: ${{env.jmeterproperties}}
+          #jmeterproperties: ${{env.jmeterproperties}}
           # Upload Dependencies
-          inputallfiles: ${{env.inputallfiles}}
-          Uploadfilechk: ${{env.Uploadfilechk}}
+          #inputallfiles: ${{env.inputallfiles}}
+          #Uploadfilechk: ${{env.Uploadfilechk}}
           # create new test
           createtest: ${{env.createtest}}
           inputstartfile: ${{env.inputstartfile}}
@@ -78,7 +78,7 @@ jobs:
           # added note
           note: ${{env.note}}
           # iterations configuration
-          iterations_config: ${{env.iterations_config}}
-          iterations: ${{env.iterations}}
+          #iterations_config: ${{env.iterations_config}}
+          #iterations: ${{env.iterations}}
           #modeldata: ${{ toJSON(env.modeldata) }}
         
