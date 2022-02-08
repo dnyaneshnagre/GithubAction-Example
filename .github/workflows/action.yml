@@ -13,7 +13,7 @@ env:
   projectid: "961236"
   
   # Upload Dependencies / Update Yaml
-  #inputallfiles: "/github/workspace/Supporting Files"
+  inputallfiles: ""
   Uploadfilechk: "true"
   env_variable: '{"username": "\"dyn1\"","password": "\"dyn1234\"", "bearer": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c\""}'
 
@@ -24,14 +24,14 @@ env:
   ContinuePipeline: "false"
   
   #report name
-  reportname: "gitlab action yml file"
+  #reportname: "gitlab action yml file"
   
   # note
-  note: "gitlab action yml file"
+  #note: "gitlab action yml file"
   
   # iterations configuration
-  iterations_config: "true"
-  iterations: "5"
+  #iterations_config: "true"
+  #iterations: "5"
 
   #workspaceid: "838258" #not required
   #datamodelid: "8df6aaaf-d1ac-56a1-a2d5-bba0ecbabff9" #not required
@@ -47,7 +47,7 @@ jobs:
         uses: actions/checkout@v2.3.4
       - name: create Blazemeter Test
         #uses: ./ # Uses an action in the root directory
-        uses: blazerunner-g/BlazeAction@v7.5
+        uses: blazerunner-g/BlazeAction@v7.3
         id: create-test
         with:
           apikey: ${{env.apikey}}
@@ -65,16 +65,16 @@ jobs:
           # update yml file
           env_variable: ${{env.env_variable}}
           Uploadfilechk: ${{env.Uploadfilechk}}
-          #inputallfiles: ${{env.inputallfiles}}
+          inputallfiles: ${{env.inputallfiles}}
           # iterations configuration
-          iterations_config: ${{env.iterations_config}}
-          iterations: ${{env.iterations}}
+          #iterations_config: ${{env.iterations_config}}
+          #iterations: ${{env.iterations}}
           # added jmeter propeties
           jmeterproperties: ${{env.jmeterproperties}}
           # added report name
-          reportname: ${{env.reportname}}
+          #reportname: ${{env.reportname}}
           # added note
-          note: ${{env.note}}
+          #note: ${{env.note}}
           # added model data
           #modeldata: ${{ toJSON(env.modeldata) }}
           
