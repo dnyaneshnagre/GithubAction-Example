@@ -9,11 +9,11 @@ env:
   # create new test
   createtest: "true"
   inputstartfile: BlazeDemo.yaml #"BlazeDemoTest_1.jmx"
-  testname: "GithubAction-D55-jmx"
+  testname: "GithubAction-D56-jmx"
   projectid: "961236"
   
   # Upload Dependencies / Update Yaml
-  inputallfiles: ""
+  #inputallfiles: ""
   Uploadfilechk: "true"
   env_variable: '{"username": "\"dyn1\"","password": "\"dyn1234\"", "bearer": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c\""}'
 
@@ -47,7 +47,7 @@ jobs:
         uses: actions/checkout@v2.3.4
       - name: create Blazemeter Test
         #uses: ./ # Uses an action in the root directory
-        uses: blazerunner-g/BlazeAction@v7.3
+        uses: blazerunner-g/BlazeAction@v7.5
         id: create-test
         with:
           apikey: ${{env.apikey}}
@@ -65,7 +65,7 @@ jobs:
           # update yml file
           env_variable: ${{env.env_variable}}
           Uploadfilechk: ${{env.Uploadfilechk}}
-          inputallfiles: ${{env.inputallfiles}}
+          #inputallfiles: ${{env.inputallfiles}}
           # iterations configuration
           #iterations_config: ${{env.iterations_config}}
           #iterations: ${{env.iterations}}
