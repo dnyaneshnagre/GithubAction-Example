@@ -1,80 +1,56 @@
-name: create-new-test (github action run test name)
+name: run-blazemeter-test-actions-workflow
 env:
   apikey: "38e53fd821771b102b5bfddc"
   apisecret: "c9fb4b4be583657d952d3d25103b28590811e7b0f43bf8d7d9107b6345ae752f15a21d50"
+  
   #run existing test
-  #testid: "10541181" #"10541181" #"10486100" # P 10127108 F 10129962 
+  #testid: "10541181" #"10486100" # P 10127108 F 10129962 
   showtaillog: "false"
   
+  #workspaceid: "838258" #not required
+  #datamodelid: "8df6aaaf-d1ac-56a1-a2d5-bba0ecbabff9" #not required
+  #modeldata: '{"email": "\"test@mailinator.com\"", "password": "\"123456\""}'
+  #modeldata: '{"url": "\"https://blazedemo123.com/\""}'
+
   # create new test
   createtest: "true"
   inputstartfile: BlazeDemo.yaml #"BlazeDemoTest_1.jmx"
-  testname: "GithubAction-D56-jmx"
+  testname: "GithubAction-D54"
   projectid: "961236"
   
   # Upload Dependencies / Update Yaml
   #inputallfiles: ""
   Uploadfilechk: "true"
-  env_variable: '{"username": "\"dyn1\"","password": "\"dyn1234\"", "bearer": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c\""}'
+  env_variable: '{"bearer": "\"4646464646464646464646446464644646466\""}'
 
   # jmeter properties
-  jmeterproperties: "test=githubaction123,test1=githubaction2,test2=githubaction3"
+  #jmeterproperties: "test=githubaction123,test1=githubaction2,test2=githubaction3"
   
   # Download Artifacts
-  ContinuePipeline: "false"
-  
-  #report name
-  #reportname: "gitlab action yml file"
-  
-  # note
-  #note: "gitlab action yml file"
-  
-  # iterations configuration
-  #iterations_config: "true"
-  #iterations: "5"
-
-  #workspaceid: "838258" #not required
-  #datamodelid: "8df6aaaf-d1ac-56a1-a2d5-bba0ecbabff9" #not required
-  #modeldata: '{"email": "\"test@mailinator.com\"", "password": "\"123456\"", ""}'
-  #modeldata: '{"url": "\"https://blazedemo123.com/\""}'
+  #ContinuePipeline: "false"
 
 on: push
 jobs:
-  create-new-test:
+  run-existing-test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2.3.4
-      - name: create Blazemeter Test
+      - name: Run Blazemeter test
         #uses: ./ # Uses an action in the root directory
-        uses: blazerunner-g/BlazeAction@v7.5
-        id: create-test
+        uses: dnyanehblazerunner/BlazeAction@v7.5
+        id: run-test
         with:
           apikey: ${{env.apikey}}
           apisecret: ${{env.apisecret}}
-          #run existing test
           #testid: ${{env.testid}}
           showtaillog: ${{env.showtaillog}}
-          # Download Artifacts and test show fail and success result
-          continuepipeline: ${{env.ContinuePipeline}}
+          #modeldata: ${{ toJSON(env.modeldata) }}
+          #continuepipeline: ${{env.ContinuePipeline}}
+          #jmeterproperties: ${{env.jmeterproperties}}
           # create new test
           createtest: ${{env.createtest}}
           inputstartfile: ${{env.inputstartfile}}
           testname: ${{env.testname}}
           projectid: ${{env.projectid}}
-          # update yml file
           env_variable: ${{env.env_variable}}
-          Uploadfilechk: ${{env.Uploadfilechk}}
-          #inputallfiles: ${{env.inputallfiles}}
-          # iterations configuration
-          #iterations_config: ${{env.iterations_config}}
-          #iterations: ${{env.iterations}}
-          # added jmeter propeties
-          jmeterproperties: ${{env.jmeterproperties}}
-          # added report name
-          #reportname: ${{env.reportname}}
-          # added note
-          #note: ${{env.note}}
-          # added model data
-          #modeldata: ${{ toJSON(env.modeldata) }}
-          
