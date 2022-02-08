@@ -13,7 +13,7 @@ env:
   projectid: "961236"
   
   # Upload Dependencies / Update Yaml
-  inputallfiles: "/github/workspace/Supporting Files"
+  #inputallfiles: "/github/workspace/Supporting Files"
   Uploadfilechk: "true"
   env_variable: '{"username": "\"dyn1\"","password": "\"dyn1234\"", "bearer": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c\""}'
 
@@ -65,7 +65,7 @@ jobs:
           # update yml file
           env_variable: ${{env.env_variable}}
           Uploadfilechk: ${{env.Uploadfilechk}}
-          inputallfiles: ${{env.inputallfiles}}
+          #inputallfiles: ${{env.inputallfiles}}
           # iterations configuration
           iterations_config: ${{env.iterations_config}}
           iterations: ${{env.iterations}}
