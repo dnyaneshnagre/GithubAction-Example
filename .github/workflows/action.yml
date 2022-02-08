@@ -4,19 +4,19 @@ env:
   apisecret: "c9fb4b4be583657d952d3d25103b28590811e7b0f43bf8d7d9107b6345ae752f15a21d50"
   
   #run existing test
-  testid: "9535204" #"10486100" # P 10127108 F 10129962 
+  testid: "10599501" #"10486100" # P 10127108 F 10129962 
   
   #display log data
   showtaillog: "false"
   
   # Upload Dependencies / Update Yaml
-  #inputallfiles: '/github/workspace/Supporting Files'
-  #Uploadfilechk: "true"
+  inputallfiles: '/github/workspace/Supporting Files'
+  Uploadfilechk: "true"
   #env_variable: '{"bearer": "\"4646464646464646464646446464644646466\""}'
   
   # create new test
   #createtest: "true"
-  #inputstartfile: "BlazeDemo.jmx" # "BlazeDemo.yaml" 
+  inputstartfile: "BlazeDemo.yaml" #"BlazeDemo.jmx" 
   #testname: "GithubAction-D55-jmx-without_itr"
   #projectid: "961236"
   
@@ -24,13 +24,13 @@ env:
   ContinuePipeline: "false"
 
   # jmeter properties
-  #jmeterproperties: "test=githubaction123,test1=githubaction2,test2=githubaction3"
+  jmeterproperties: "test=githubaction123,test1=githubaction2,test2=githubaction3"
     
   # report name
-  #reportname: "github-action-ext-jmx_without_itr"
+  reportname: "github-action-ext-jmx_without_itr"
   
   # note 
-  #note: "github-action-ext-jmx_without_itr"
+  note: "github-action-ext-jmx_without_itr"
   
   # iterations configuration
   #iterations_config: "true"
@@ -62,21 +62,21 @@ jobs:
           # Download Artifacts and show a test result 
           ContinuePipeline: ${{env.ContinuePipeline}}
           #added jmeter properties
-          #jmeterproperties: ${{env.jmeterproperties}}
+          jmeterproperties: ${{env.jmeterproperties}}
           # Upload Dependencies
-          #inputallfiles: ${{env.inputallfiles}}
-          #Uploadfilechk: ${{env.Uploadfilechk}}
+          inputallfiles: ${{env.inputallfiles}}
+          Uploadfilechk: ${{env.Uploadfilechk}}
           # create new test
           #createtest: ${{env.createtest}}
-          #inputstartfile: ${{env.inputstartfile}}
+          inputstartfile: ${{env.inputstartfile}}
           #testname: ${{env.testname}}
           #projectid: ${{env.projectid}}
           #update yml file
           #env_variable: ${{env.env_variable}}
           # added report name
-          #reportname: ${{env.reportname}}
+          reportname: ${{env.reportname}}
           # added note
-          #note: ${{env.note}}
+          note: ${{env.note}}
           # iterations configuration
           #iterations_config: ${{env.iterations_config}}
           #iterations: ${{env.iterations}}
