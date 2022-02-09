@@ -56,7 +56,7 @@ jobs:
           apikey: ${{env.apikey}}
           apisecret: ${{env.apisecret}}
           # run exitsing test
-          #testid: ${{env.testid}}
+          testid: ${{env.testid}}
           # diplay log data
           showtaillog: ${{env.showtaillog}}
           # Download Artifacts and show a test result 
