@@ -4,7 +4,7 @@ env:
   apisecret: "c9fb4b4be583657d952d3d25103b28590811e7b0f43bf8d7d9107b6345ae752f15a21d50"
   
   #run existing test
-  #testid: "9535237" #"10486100" # P 10127108 F 10129962 
+  testid: "10603714" #"10486100" # P 10127108 F 10129962 
   
   #display log data
   showtaillog: "false"
@@ -15,10 +15,10 @@ env:
   env_variable: '{"bearerToken": "\"4646464646464646464646446464644646466\""}'
   
   # create new test
-  createtest: "true"
+  #createtest: "true"
   inputstartfile: BlazeDemo.yaml #"BlazeDemo.jmx" #"BlazeDemo.yaml" 
-  testname: "GithubAction-D56-yml"
-  projectid: "961236"
+  #testname: "GithubAction-D56-yml"
+  #projectid: "961236"
   
   # Download Artifacts
   ContinuePipeline: "false"
@@ -27,10 +27,10 @@ env:
   jmeterproperties: "test=githubaction123,test1=githubaction2,test2=githubaction3"
     
   # report name
-  reportname: "github-action-6"
+  reportname: "github-action-7"
   
   # note 
-  note: "github-action-6"
+  note: "github-action-7"
   
   # iterations configuration
   #iterations_config: "true"
@@ -67,10 +67,10 @@ jobs:
           inputallfiles: ${{env.inputallfiles}}
           Uploadfilechk: ${{env.Uploadfilechk}}
           # create new test
-          createtest: ${{env.createtest}}
+          #createtest: ${{env.createtest}}
           inputstartfile: ${{env.inputstartfile}}
-          testname: ${{env.testname}}
-          projectid: ${{env.projectid}}
+          #testname: ${{env.testname}}
+          #projectid: ${{env.projectid}}
           #update yml file
           env_variable: ${{env.env_variable}}
           # added report name
