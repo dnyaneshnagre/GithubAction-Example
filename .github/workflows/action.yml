@@ -27,10 +27,10 @@ env:
   jmeterproperties: "test=githubaction123,test1=githubaction2,test2=githubaction3"
     
   # report name
-  reportname: "github-action-3"
+  reportname: "github-action-4"
   
   # note 
-  note: "github-action-3"
+  note: "github-action-4"
   
   # iterations configuration
   #iterations_config: "true"
