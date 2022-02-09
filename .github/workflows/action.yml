@@ -17,7 +17,7 @@ env:
   # create new test
   createtest: "true"
   inputstartfile: BlazeDemo.jmx #"BlazeDemo.jmx" #"BlazeDemo.yaml" 
-  testname: "GithubAction-D58-jmx"
+  testname: "GithubAction-D60-jmx"
   projectid: "961236"
   
   # Download Artifacts
@@ -27,10 +27,10 @@ env:
   jmeterproperties: "test=githubaction123,test1=githubaction2,test2=githubaction3"
     
   # report name
-  reportname: "github-action-13"
+  reportname: "github-action-15"
   
   # note 
-  note: "github-action-13"
+  note: "github-action-15"
   
   # LOAD CONFIGURATION
   totalusers: "10"
@@ -54,7 +54,7 @@ jobs:
         uses: actions/checkout@v2.3.4
       - name: Run Blazemeter test
         #uses: ./ # Uses an action in the root directory
-        uses: dnyanehblazerunner/BlazeAction@v7.9.1
+        uses: dnyanehblazerunner/BlazeAction@v7.9.2
         id: run-test
         with:
           apikey: ${{env.apikey}}
