@@ -10,13 +10,13 @@ env:
   showtaillog: "false"
   
   # Upload Dependencies / Update Yaml
-  #inputallfiles: '/github/workspace/Supporting Files'
-  #Uploadfilechk: "true"
+  inputallfiles: '/github/workspace/Supporting Files'
+  Uploadfilechk: "true"
   #env_variable: '{"bearerToken": "\"4646464646464646464646446464644646466\""}'
   
   # create new test
   #createtest: "true"
-  #inputstartfile: BlazeDemo.jmx #"BlazeDemo.jmx" #"BlazeDemo.yaml" 
+  inputstartfile: BlazeDemo.jmx #"BlazeDemo.jmx" #"BlazeDemo.yaml" 
   #testname: "GithubAction-D57-jmx"
   #projectid: "961236"
   
@@ -27,14 +27,14 @@ env:
   jmeterproperties: "test=githubaction123,test1=githubaction2,test2=githubaction3"
     
   # report name
-  reportname: "github-action-9"
+  reportname: "github-action-10"
   
   # note 
-  note: "github-action-9"
+  note: "github-action-10"
   
   # iterations configuration
   iterations_config: "true"
-  iterations: "10"
+  iterations: "5"
 
   #workspaceid: "838258" #not required
   #datamodelid: "8df6aaaf-d1ac-56a1-a2d5-bba0ecbabff9" #not required
@@ -64,11 +64,11 @@ jobs:
           #added jmeter properties
           jmeterproperties: ${{env.jmeterproperties}}
           # Upload Dependencies
-          #inputallfiles: ${{env.inputallfiles}}
-          #Uploadfilechk: ${{env.Uploadfilechk}}
+          inputallfiles: ${{env.inputallfiles}}
+          Uploadfilechk: ${{env.Uploadfilechk}}
           # create new test
           #createtest: ${{env.createtest}}
-          #inputstartfile: ${{env.inputstartfile}}
+          inputstartfile: ${{env.inputstartfile}}
           #testname: ${{env.testname}}
           #projectid: ${{env.projectid}}
           #update yml file
