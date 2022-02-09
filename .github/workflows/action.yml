@@ -27,14 +27,14 @@ env:
   jmeterproperties: "test=githubaction123,test1=githubaction2,test2=githubaction3"
     
   # report name
-  reportname: "github-action-11"
+  reportname: "github-action-12"
   
   # note 
-  note: "github-action-11"
+  note: "github-action-12"
   
   # iterations configuration
   iterations_config: "true"
-  iterations: "5"
+  #iterations: "5"
 
   #workspaceid: "838258" #not required
   #datamodelid: "8df6aaaf-d1ac-56a1-a2d5-bba0ecbabff9" #not required
@@ -79,6 +79,6 @@ jobs:
           note: ${{env.note}}
           # iterations configuration
           iterations_config: ${{env.iterations_config}}
-          iterations: ${{env.iterations}}
+          #iterations: ${{env.iterations}}
           #modeldata: ${{ toJSON(env.modeldata) }}
       
