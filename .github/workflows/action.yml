@@ -37,7 +37,7 @@ env:
   #duration: "10"
   #rampup: "1"
   # iterations configuration
-  #iterations_config: "true"
+  iterations_config: "true"
   #iterations: "5"
 
   #workspaceid: "838258" #not required
@@ -84,7 +84,7 @@ jobs:
           # LOAD CONFIGURATION
           # iterations configuration
           #iterations_config: ${{env.iterations_config}}
-          #iterations: ${{env.iterations}}
+          iterations: ${{env.iterations}}
           #totalusers: ${{env.totalusers}}
           #duration: ${{env.duration}}
           #rampup: ${{env.rampup}}
