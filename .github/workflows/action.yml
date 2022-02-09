@@ -4,7 +4,7 @@ env:
   apisecret: "c9fb4b4be583657d952d3d25103b28590811e7b0f43bf8d7d9107b6345ae752f15a21d50"
   
   #run existing test
-  testid: "9535237" #"10603714" #"10486100" # P 10127108 F 10129962 
+  testid: "10603714" #"10603714" #"10486100" # P 10127108 F 10129962 
   
   #display log data
   showtaillog: "false"
@@ -24,13 +24,13 @@ env:
   ContinuePipeline: "false"
 
   # jmeter properties
-  #jmeterproperties: "test=githubaction123,test1=githubaction2,test2=githubaction3"
+  jmeterproperties: "test=githubaction123,test1=githubaction2,test2=githubaction3"
     
   # report name
-  #reportname: "github-action-16"
+  reportname: "github-action-20"
   
   # note 
-  #note: "github-action-16"
+  note: "github-action-20"
   
   # LOAD CONFIGURATION
   #totalusers: "10"
@@ -66,7 +66,7 @@ jobs:
           # Download Artifacts and show a test result 
           ContinuePipeline: ${{env.ContinuePipeline}}
           #added jmeter properties
-          #jmeterproperties: ${{env.jmeterproperties}}
+          jmeterproperties: ${{env.jmeterproperties}}
           # Upload Dependencies
           #inputallfiles: ${{env.inputallfiles}}
           #Uploadfilechk: ${{env.Uploadfilechk}}
@@ -78,9 +78,9 @@ jobs:
           #update yml file
           #env_variable: ${{env.env_variable}}
           # added report name
-          #reportname: ${{env.reportname}}
+          reportname: ${{env.reportname}}
           # added note
-          #note: ${{env.note}}
+          note: ${{env.note}}
           # LOAD CONFIGURATION
           # iterations configuration
           #iterations_config: ${{env.iterations_config}}
