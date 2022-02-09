@@ -83,8 +83,8 @@ jobs:
           note: ${{env.note}}
           # LOAD CONFIGURATION
           # iterations configuration
-          #iterations_config: ${{env.iterations_config}}
-          iterations: ${{env.iterations}}
+          iterations_config: ${{env.iterations_config}}
+          #iterations: ${{env.iterations}}
           #totalusers: ${{env.totalusers}}
           #duration: ${{env.duration}}
           #rampup: ${{env.rampup}}
