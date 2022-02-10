@@ -4,21 +4,21 @@ env:
   apisecret: "c9fb4b4be583657d952d3d25103b28590811e7b0f43bf8d7d9107b6345ae752f15a21d50"
   
   #run existing test
-  testid: "10610346" #"10603714" #"10486100" # P 10127108 F 10129962 
+  #testid: "10610346" #"10603714" #"10486100" # P 10127108 F 10129962 
   
   #display log data
   showtaillog: "false"
   
   # Upload Dependencies / Update Yaml
-  #inputallfiles: '/github/workspace/Supporting Files'
+  inputallfiles: '/github/workspace/Supporting Files'
   Uploadfilechk: "true"
-  #env_variable: '{"bearerToken": "\"4646464646464646464646446464644646466\""}'
+  env_variable: '{"bearerToken": "\"4646464646464646464646446464644646466\""}'
   
   # create new test
-  #createtest: "true"
+  createtest: "true"
   inputstartfile: BlazeDemo.yaml #"BlazeDemo.jmx" #"BlazeDemo.yaml" 
-  #testname: "GithubAction-D60-jmx"
-  #projectid: "961236"
+  testname: "GithubAction-D61-yaml"
+  projectid: "961236"
   
   # Download Artifacts
   ContinuePipeline: "false"
@@ -27,10 +27,10 @@ env:
   jmeterproperties: "test=githubaction123,test1=githubaction2,test2=githubaction3"
     
   # report name
-  reportname: "github-action-yml-1"
+  reportname: "github-action-yml-3"
   
   # note 
-  note: "github-action-yml-1"
+  note: "github-action-yml-2"
   
   # LOAD CONFIGURATION
   #totalusers: "10"
@@ -60,7 +60,7 @@ jobs:
           apikey: ${{env.apikey}}
           apisecret: ${{env.apisecret}}
           # run exitsing test
-          testid: ${{env.testid}}
+          #testid: ${{env.testid}}
           # diplay log data
           showtaillog: ${{env.showtaillog}}
           # Download Artifacts and show a test result 
@@ -68,15 +68,15 @@ jobs:
           #added jmeter properties
           jmeterproperties: ${{env.jmeterproperties}}
           # Upload Dependencies
-          #inputallfiles: ${{env.inputallfiles}}
+          inputallfiles: ${{env.inputallfiles}}
           Uploadfilechk: ${{env.Uploadfilechk}}
           # create new test
-          #createtest: ${{env.createtest}}
+          createtest: ${{env.createtest}}
           inputstartfile: ${{env.inputstartfile}}
-          #testname: ${{env.testname}}
-          #projectid: ${{env.projectid}}
+          testname: ${{env.testname}}
+          projectid: ${{env.projectid}}
           #update yml file
-          #env_variable: ${{env.env_variable}}
+          env_variable: ${{env.env_variable}}
           # added report name
           reportname: ${{env.reportname}}
           # added note
