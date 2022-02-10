@@ -27,7 +27,7 @@ env:
   jmeterproperties: "test=githubaction123,test1=githubaction2,test2=githubaction3"
     
   # report name
-  reportname: "github-action-yml-11"
+  #reportname: "github-action-yml-11"
   
   # note 
   note: "github-action-yml-11"
@@ -38,7 +38,7 @@ env:
   #rampup: "1"
   # iterations configuration
   iterations_config: "true"
-  iterations: "10"
+  #iterations: "10"
 
   #workspaceid: "838258" #not required
   #datamodelid: "8df6aaaf-d1ac-56a1-a2d5-bba0ecbabff9" #not required
@@ -78,13 +78,13 @@ jobs:
           #update yml file
           #env_variable: ${{env.env_variable}}
           # added report name
-          reportname: ${{env.reportname}}
+          #reportname: ${{env.reportname}}
           # added note
           note: ${{env.note}}
           # LOAD CONFIGURATION
           # iterations configuration
           iterations_config: ${{env.iterations_config}}
-          iterations: ${{env.iterations}}
+          #iterations: ${{env.iterations}}
           #totalusers: ${{env.totalusers}}
           #duration: ${{env.duration}}
           #rampup: ${{env.rampup}}
