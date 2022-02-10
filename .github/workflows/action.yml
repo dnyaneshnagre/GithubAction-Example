@@ -4,19 +4,19 @@ env:
   apisecret: "c9fb4b4be583657d952d3d25103b28590811e7b0f43bf8d7d9107b6345ae752f15a21d50"
   
   #run existing test
-  testid: "10603714" #"10603714" #"10486100" # P 10127108 F 10129962 
+  testid: "10610346" #"10603714" #"10486100" # P 10127108 F 10129962 
   
   #display log data
   showtaillog: "false"
   
   # Upload Dependencies / Update Yaml
   #inputallfiles: '/github/workspace/Supporting Files'
-  #Uploadfilechk: "true"
+  Uploadfilechk: "true"
   #env_variable: '{"bearerToken": "\"4646464646464646464646446464644646466\""}'
   
   # create new test
   #createtest: "true"
-  #inputstartfile: BlazeDemo.jmx #"BlazeDemo.jmx" #"BlazeDemo.yaml" 
+  inputstartfile: BlazeDemo.yaml #"BlazeDemo.jmx" #"BlazeDemo.yaml" 
   #testname: "GithubAction-D60-jmx"
   #projectid: "961236"
   
@@ -27,10 +27,10 @@ env:
   jmeterproperties: "test=githubaction123,test1=githubaction2,test2=githubaction3"
     
   # report name
-  reportname: "github-action-20"
+  reportname: "github-action-yml-1"
   
   # note 
-  note: "github-action-20"
+  note: "github-action-yml-1"
   
   # LOAD CONFIGURATION
   #totalusers: "10"
@@ -69,10 +69,10 @@ jobs:
           jmeterproperties: ${{env.jmeterproperties}}
           # Upload Dependencies
           #inputallfiles: ${{env.inputallfiles}}
-          #Uploadfilechk: ${{env.Uploadfilechk}}
+          Uploadfilechk: ${{env.Uploadfilechk}}
           # create new test
           #createtest: ${{env.createtest}}
-          #inputstartfile: ${{env.inputstartfile}}
+          inputstartfile: ${{env.inputstartfile}}
           #testname: ${{env.testname}}
           #projectid: ${{env.projectid}}
           #update yml file
