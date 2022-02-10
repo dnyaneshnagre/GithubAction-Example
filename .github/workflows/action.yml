@@ -11,12 +11,12 @@ env:
   
   # Upload Dependencies / Update Yaml
   #inputallfiles: '/github/workspace/Supporting Files'
-  #Uploadfilechk: "true"
+  Uploadfilechk: "true"
   #env_variable: '{"bearerToken": "\"4646464646464646464646446464644646466\""}'
   
   # create new test
   #createtest: "true"
-  #inputstartfile: BlazeDemo.yaml #"BlazeDemo.jmx" #"BlazeDemo.yaml" 
+  inputstartfile: BlazeDemo.jmx #"BlazeDemo.jmx" #"BlazeDemo.yaml" 
   #testname: "GithubAction-D65-yaml"
   #projectid: "961236"
   
@@ -27,10 +27,10 @@ env:
   jmeterproperties: "test=githubaction123,test1=githubaction2,test2=githubaction3"
     
   # report name
-  reportname: "github-action-yml-8"
+  reportname: "github-action-yml-10"
   
   # note 
-  note: "github-action-yml-8"
+  note: "github-action-yml-10"
   
   # LOAD CONFIGURATION
   #totalusers: "10"
@@ -69,10 +69,10 @@ jobs:
           jmeterproperties: ${{env.jmeterproperties}}
           # Upload Dependencies
           #inputallfiles: ${{env.inputallfiles}}
-          #Uploadfilechk: ${{env.Uploadfilechk}}
+          Uploadfilechk: ${{env.Uploadfilechk}}
           # create new test
           #createtest: ${{env.createtest}}
-          #inputstartfile: ${{env.inputstartfile}}
+          inputstartfile: ${{env.inputstartfile}}
           #testname: ${{env.testname}}
           #projectid: ${{env.projectid}}
           #update yml file
