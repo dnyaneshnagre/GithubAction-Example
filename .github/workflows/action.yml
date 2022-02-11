@@ -2,11 +2,9 @@ name: run-blazemeter-test-actions-workflow
 env:
   apikey: "38e53fd821771b102b5bfddc"
   apisecret: "c9fb4b4be583657d952d3d25103b28590811e7b0f43bf8d7d9107b6345ae752f15a21d50"
-  inputstartfile: "BlazeDemo.yaml"
-  createtest: "true"
-  testname: "GithubAction-D67-taurus-yaml"
-  projectid: "961236"
-  env_variable: '{"bearerToken": "\"8884646464646464646464646446464644646466\""}'
+  testid: "10615679"
+  ContinuePipeline: "false"
+  showtaillog: "false"
   
 on: push
 jobs:
@@ -21,9 +19,7 @@ jobs:
         with:
           apikey: ${{env.apikey}}
           apisecret: ${{env.apisecret}}
-          inputstartfile: ${{env.inputstartfile}}
-          createtest: ${{env.createtest}}
-          testname: ${{env.testname}}
-          projectid: ${{env.projectid}}
-          env_variable: ${{env.env_variable}}
-
+          testid: ${{env.testid}}
+          ContinuePipeline: ${{env.ContinuePipeline}}
+          showtaillog: ${{env.showtaillog}}
+          
