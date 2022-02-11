@@ -2,10 +2,7 @@ name: run-blazemeter-test-actions-workflow
 env:
   apikey: "38e53fd821771b102b5bfddc"
   apisecret: "c9fb4b4be583657d952d3d25103b28590811e7b0f43bf8d7d9107b6345ae752f15a21d50"
-  createtest: "true"
-  inputstartfile: BlazeDemo.jmx
-  testname: "GithubAction-D71-taurus-yaml"
-  projectid: "961236"
+  testid: "10615531"
   
 on: push
 jobs:
@@ -20,8 +17,5 @@ jobs:
         with:
           apikey: ${{env.apikey}}
           apisecret: ${{env.apisecret}}
-          createtest: ${{env.createtest}}
-          inputstartfile: ${{env.inputstartfile}}
-          testname: ${{env.testname}}
-          projectid: ${{env.projectid}}
+          testid: ${{env.testid}}
 
