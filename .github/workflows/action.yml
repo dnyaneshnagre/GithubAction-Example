@@ -20,7 +20,6 @@ jobs:
           apikey: ${{env.apikey}}
           apisecret: ${{env.apisecret}}
           testid: ${{env.testid}}
-          inputallfiles: ${{env.inputallfiles}}
           Uploadfilechk: ${{env.Uploadfilechk}}
           inputstartfile: ${{env.inputstartfile}}
 
