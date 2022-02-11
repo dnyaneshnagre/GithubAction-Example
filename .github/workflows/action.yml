@@ -2,49 +2,11 @@ name: run-blazemeter-test-actions-workflow
 env:
   apikey: "38e53fd821771b102b5bfddc"
   apisecret: "c9fb4b4be583657d952d3d25103b28590811e7b0f43bf8d7d9107b6345ae752f15a21d50"
+  createtest: "true"
+  inputstartfile: BlazeDemo-Taurus.yaml
+  testname: "GithubAction-D70-taurus-yaml"
+  projectid: "961236"
   
-  #run existing test
-  testid: "10605176" #"10610977" #"10603714" #"10486100" # P 10127108 F 10129962 
-  
-  #display log data
-  showtaillog: "false"
-  
-  # Upload Dependencies / Update Yaml
-  #inputallfiles: '/github/workspace/Supporting Files'
-  #Uploadfilechk: "true"
-  #env_variable: '{"bearerToken": "\"4646464646464646464646446464644646466\""}'
-  
-  # create new test
-  #createtest: "true"
-  #inputstartfile: BlazeDemo-Taurus.yaml #"BlazeDemo.jmx" #"BlazeDemo.yaml" # "BlazeDemo-Taurus.yaml"
-  #testname: "GithubAction-D66-taurus-yaml"
-  #projectid: "961236"
-  
-  # Download Artifacts
-  ContinuePipeline: "false"
-
-  # jmeter properties
-  jmeterproperties: "test=githubaction123,test1=githubaction2,test2=githubaction3"
-    
-  # report name
-  #reportname: "github-action-yml-11"
-  
-  # note 
-  note: "github-action-yml-11"
-  
-  # LOAD CONFIGURATION
-  #totalusers: "10"
-  #duration: "10"
-  #rampup: "1"
-  # iterations configuration
-  iterations_config: "true"
-  #iterations: "10"
-
-  #workspaceid: "838258" #not required
-  #datamodelid: "8df6aaaf-d1ac-56a1-a2d5-bba0ecbabff9" #not required
-  #modeldata: '{"email": "\"test@mailinator.com\"", "password": "\"123456\""}'
-  #modeldata: '{"url": "\"https://blazedemo123.com/\""}'
-
 on: push
 jobs:
   run-existing-test:
@@ -53,40 +15,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2.3.4
       - name: Run Blazemeter test
-        #uses: ./ # Uses an action in the root directory
         uses: dnyanehblazerunner/BlazeAction@v7.9.2
         id: run-test
         with:
           apikey: ${{env.apikey}}
           apisecret: ${{env.apisecret}}
-          # run exitsing test
-          testid: ${{env.testid}}
-          # diplay log data
-          showtaillog: ${{env.showtaillog}}
-          # Download Artifacts and show a test result 
-          ContinuePipeline: ${{env.ContinuePipeline}}
-          #added jmeter properties
-          jmeterproperties: ${{env.jmeterproperties}}
-          # Upload Dependencies
-          #inputallfiles: ${{env.inputallfiles}}
-          #Uploadfilechk: ${{env.Uploadfilechk}}
-          # create new test
-          #createtest: ${{env.createtest}}
-          #inputstartfile: ${{env.inputstartfile}}
-          #testname: ${{env.testname}}
-          #projectid: ${{env.projectid}}
-          #update yml file
-          #env_variable: ${{env.env_variable}}
-          # added report name
-          #reportname: ${{env.reportname}}
-          # added note
-          note: ${{env.note}}
-          # LOAD CONFIGURATION
-          # iterations configuration
-          iterations_config: ${{env.iterations_config}}
-          #iterations: ${{env.iterations}}
-          #totalusers: ${{env.totalusers}}
-          #duration: ${{env.duration}}
-          #rampup: ${{env.rampup}}
-          #modeldata: ${{ toJSON(env.modeldata) }}
-  
+          createtest: ${{env.createtest}}
+          inputstartfile: ${{env.inputstartfile}}
+          testname: ${{env.testname}}
+          projectid: ${{env.projectid}}
