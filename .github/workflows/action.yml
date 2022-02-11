@@ -2,9 +2,8 @@ name: run-blazemeter-test-actions-workflow
 env:
   apikey: "38e53fd821771b102b5bfddc"
   apisecret: "c9fb4b4be583657d952d3d25103b28590811e7b0f43bf8d7d9107b6345ae752f15a21d50"
-  testid: "10615487"
+  testid: "10614827"
   iterations_config: "true"
-  iterations: "10"
   
 on: push
 jobs:
@@ -21,7 +20,6 @@ jobs:
           apisecret: ${{env.apisecret}}
           testid: ${{env.testid}}
           iterations_config: ${{env.iterations_config}}
-          iterations: ${{env.iterations}}
           
           
           
