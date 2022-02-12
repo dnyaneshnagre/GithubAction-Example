@@ -2,8 +2,13 @@ name: run-blazemeter-test-actions-workflow
 env:
   apikey: "38e53fd821771b102b5bfddc"
   apisecret: "c9fb4b4be583657d952d3d25103b28590811e7b0f43bf8d7d9107b6345ae752f15a21d50"
-  testid: "10605176"
+  createtest: "true"
+  inputstartfile: BlazeDemo.jmx
+  testname: "GithubAction-D80-jmx"
+  projectid: "961236"
   iterations_config: "true"
+  inputallfiles: '/github/workspace/Supporting Files'
+  Uploadfilechk: "true"
   
 on: push
 jobs:
@@ -18,5 +23,10 @@ jobs:
         with:
           apikey: ${{env.apikey}}
           apisecret: ${{env.apisecret}}
-          testid: ${{env.testid}}
+          createtest: ${{env.createtest}}
+          inputstartfile: ${{env.inputstartfile}}
+          testname: ${{env.testname}}
+          projectid: ${{env.projectid}}
           iterations_config: ${{env.iterations_config}}
+          inputallfiles: ${{env.inputallfiles}}
+          Uploadfilechk: ${{env.Uploadfilechk}}
