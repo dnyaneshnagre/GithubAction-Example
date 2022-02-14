@@ -2,11 +2,11 @@ name: run-blazemeter-test-actions-workflow
 env:
   apikey: "38e53fd821771b102b5bfddc"
   apisecret: "c9fb4b4be583657d952d3d25103b28590811e7b0f43bf8d7d9107b6345ae752f15a21d50"
-  inputstartfile: "BlazeDemo.yaml"
-  createtest: "true"
-  testname: "GithubAction-D85-taurus-yaml"
-  projectid: "961236"
+  testid: "10626081"
+  inputallfiles: "/github/workspace/Supporting Files"
+  Uploadfilechk: "true"
   env_variable: '{"bearerToken": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c\"", "pass": "\"Test@123456\""}'
+
   
 on: push
 jobs:
@@ -21,8 +21,9 @@ jobs:
         with:
           apikey: ${{env.apikey}}
           apisecret: ${{env.apisecret}}
-          inputstartfile: ${{env.inputstartfile}}
-          createtest: ${{env.createtest}}
-          testname: ${{env.testname}}
-          projectid: ${{env.projectid}}
-          env_variable: ${{env.env_variable}}
+          testid: ${{env.testid}}
+          inputallfiles: ${{env.inputallfiles}}
+          Uploadfilechk: ${{env.Uploadfilechk}}
+
+
+
