@@ -24,6 +24,7 @@ jobs:
           testid: ${{env.testid}}
           inputallfiles: ${{env.inputallfiles}}
           Uploadfilechk: ${{env.Uploadfilechk}}
+          env_variable: ${{env.env_variable}}
 
 
 
