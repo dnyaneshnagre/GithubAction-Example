@@ -17,6 +17,7 @@ scenarios:
       password: "dnyaneshwar123"
       bearer: ""
       bearerToken: ${bearerToken}
+      pass: ${pass}
     generate-flow-markers: true
     headless: false
     timeout: 60s
