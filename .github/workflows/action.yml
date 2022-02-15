@@ -5,8 +5,8 @@ env:
   testid: "10629904"
   ContinuePipeline: "false"
   showtaillog: "false"
-  #inputstartfile: "BlazeDemo-Taurus.yaml"
-  #Uploadfilechk: "true"
+  inputstartfile: "BlazeDemo-Taurus.yaml"
+  Uploadfilechk: "true"
   
 on: push
 jobs:
@@ -24,5 +24,5 @@ jobs:
           testid: ${{env.testid}}
           ContinuePipeline: ${{env.ContinuePipeline}}
           showtaillog: ${{env.showtaillog}}
-          #Uploadfilechk: ${{env.Uploadfilechk}}
-          #inputstartfile: ${{env.inputstartfile}}
+          Uploadfilechk: ${{env.Uploadfilechk}}
+          inputstartfile: ${{env.inputstartfile}}
