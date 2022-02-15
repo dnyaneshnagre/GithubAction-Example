@@ -5,6 +5,9 @@ env:
   testid: "10629466"
   ContinuePipeline: "false"
   showtaillog: "false"
+  jmeterproperties: "test=githubaction123,test1=githubaction2,test2=githubaction3"
+  reportname: "new_script_taurus"
+  note: "new_test_script_taurus"
   
 on: push
 jobs:
@@ -22,3 +25,6 @@ jobs:
           testid: ${{env.testid}}
           ContinuePipeline: ${{env.ContinuePipeline}}
           showtaillog: ${{env.showtaillog}}
+          jmeterproperties: ${{env.jmeterproperties}}
+          reportname: ${{env.reportname}}
+          note: ${{env.note}}
