@@ -8,9 +8,9 @@ modules:
 execution:
 - executor: jmeter
   scenario: RECORD 04-22-21 12.15.42 PM-Http
-  concurrency: 5
+  concurrency: 2
   ramp-up: 1
-  iterations: 5
+  iterations: 2
 
 scenarios:
   RECORD 04-22-21 12.15.42 PM-Selenium:
