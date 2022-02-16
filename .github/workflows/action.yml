@@ -28,9 +28,11 @@ env:
 #           inputstartfile: ${{env.inputstartfile}}
       
 on:
-  repository_dispatch:
-    types: [test_result]
   push:
+  workflow_run:
+    workflows: [Build]
+    types: [completed]
+    
   
 jobs:
   run-existing-test:
@@ -49,10 +51,13 @@ jobs:
           showtaillog: ${{env.showtaillog}}
           Uploadfilechk: ${{env.Uploadfilechk}}
           inputstartfile: ${{env.inputstartfile}}
-  run_if_failure:
-    if: ${{ !github.event.client_payload.passed }}
+  on-success:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
-      - env:
-          MESSAGE: ${{ github.event.client_payload.message }}
-        run: echo $MESSAGE
+      - run: echo 'The triggering workflow passed'
+  on-failure:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    steps:
+      - run: echo 'The triggering workflow failed'
