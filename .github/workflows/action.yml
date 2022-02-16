@@ -8,6 +8,7 @@ env:
   #inputstartfile: "BlazeDemo-Taurus.yaml"
   #Uploadfilechk: "true"
   
+  
 # on: push
 # jobs:
 #   run-existing-test:
@@ -37,7 +38,7 @@ on:
     types: [completed]
     
 jobs:
-  run-existing-test:
+  git-sync:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
