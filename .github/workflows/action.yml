@@ -55,12 +55,8 @@ jobs:
           ContinuePipeline: ${{env.ContinuePipeline}}
           showtaillog: ${{env.showtaillog}}
   on-success:
+    needs: git-sync
     runs-on: ubuntu-latest
     if: ${{ needs.github.event.workflow_run.conclusion == 'success' }}
     steps:
       - run: echo 'The triggering workflow passed'
-  on-failure:
-    runs-on: ubuntu-latest
-    if: ${{ needs.github.event.workflow_run.conclusion == 'failure' }}
-    steps:
-      - run: echo 'The triggering workflow failed'
