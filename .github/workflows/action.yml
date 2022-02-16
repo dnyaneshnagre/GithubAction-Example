@@ -2,12 +2,32 @@ name: run-blazemeter-test-actions-workflow
 env:
   apikey: "38e53fd821771b102b5bfddc"
   apisecret: "c9fb4b4be583657d952d3d25103b28590811e7b0f43bf8d7d9107b6345ae752f15a21d50"
-  testid: "10629904"
+  testid: "10625965"
+  iterations_config: "true"
+  iterations: "5"
   ContinuePipeline: "false"
   showtaillog: "false"
-  #inputstartfile: "BlazeDemo-Taurus.yaml"
-  #Uploadfilechk: "true"
   
+on: push
+jobs:
+  run-existing-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.4
+      - name: Run Blazemeter test
+        uses: blazerunner-g/BlazeAction@v7.9.6
+        id: run-test
+        with:
+          apikey: ${{env.apikey}}
+          apisecret: ${{env.apisecret}}
+          testid: ${{env.testid}}
+          iterations_config: ${{env.iterations_config}}
+          iterations: ${{env.iterations}}
+          ContinuePipeline: ${{env.ContinuePipeline}}
+          showtaillog: ${{env.showtaillog}}
+
+
   
 # on: push
 # jobs:
@@ -31,34 +51,34 @@ env:
 #             echo ${{ env.BlazeMeterPublicURL }}
 #             echo ${{ secrets.BlazeMeterPublicURL }}
             
-on:
-  push:
-  workflow_run:
-    workflows: [Run Tests]
-    types: [completed]
+# on:
+#   push:
+#   workflow_run:
+#     workflows: [Run Tests]
+#     types: [completed]
     
-jobs:
-  git-sync:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2.3.4
-      - name: Run Blazemeter test
-        uses: blazerunner-g/BlazeAction@v7.9.7
-        id: run-test
-        with:
-          apikey: ${{env.apikey}}
-          apisecret: ${{env.apisecret}}
-          testid: ${{env.testid}}
-          ContinuePipeline: ${{env.ContinuePipeline}}
-          showtaillog: ${{env.showtaillog}}
-  on-success:
-    runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    steps:
-      - run: echo 'The triggering workflow passed'
-  on-failure:
-    runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
-    steps:
-      - run: echo 'The triggering workflow failed'
+# jobs:
+#   git-sync:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v2.3.4
+#       - name: Run Blazemeter test
+#         uses: blazerunner-g/BlazeAction@v7.9.7
+#         id: run-test
+#         with:
+#           apikey: ${{env.apikey}}
+#           apisecret: ${{env.apisecret}}
+#           testid: ${{env.testid}}
+#           ContinuePipeline: ${{env.ContinuePipeline}}
+#           showtaillog: ${{env.showtaillog}}
+#   on-success:
+#     runs-on: ubuntu-latest
+#     if: ${{ github.event.workflow_run.conclusion == 'success' }}
+#     steps:
+#       - run: echo 'The triggering workflow passed'
+#   on-failure:
+#     runs-on: ubuntu-latest
+#     if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+#     steps:
+#       - run: echo 'The triggering workflow failed'
