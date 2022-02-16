@@ -54,7 +54,6 @@ jobs:
     runs-on: ubuntu-latest
     #if: needs.git-sync.status == 'success'   #needs.github.event.workflow_run.conclusion == 'success'
     steps: 
-      - run: |
-          echo 'The triggering workflow passed'
-          echo "This job's status is ${{ job }}."
-          echo "this is git-sync is ${{ git-sync }}."
+      #- run: echo 'The triggering workflow passed'
+      - run: echo "This job's status is ${{ job }}."
+      #- run: echo "this is git-sync is ${{ git-sync }}."
