@@ -30,7 +30,6 @@ jobs:
             echo ${{ env.BlazeMeterPublicURL }}
             echo ${{ secrets.BlazeMeterPublicURL }}
             
-      
 # on:
 #   workflow_run:
 #     workflows: [Run Tests]
