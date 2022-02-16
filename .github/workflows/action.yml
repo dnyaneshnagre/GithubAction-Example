@@ -3,13 +3,8 @@ env:
   apikey: "38e53fd821771b102b5bfddc"
   apisecret: "c9fb4b4be583657d952d3d25103b28590811e7b0f43bf8d7d9107b6345ae752f15a21d50"
   testid: "10625965"
-  iterations_config: "true"
-  iterations: "5"
   ContinuePipeline: "false"
   showtaillog: "false"
-
-
-
   
 # on: push
 # jobs:
@@ -57,6 +52,6 @@ jobs:
   on-success:
     needs: git-sync
     runs-on: ubuntu-latest
-    if: needs.git-sync.status == 'success'   #needs.github.event.workflow_run.conclusion == 'success'
+    #if: needs.git-sync.status == 'success'   #needs.github.event.workflow_run.conclusion == 'success'
     steps:
       - run: echo 'The triggering workflow passed'
