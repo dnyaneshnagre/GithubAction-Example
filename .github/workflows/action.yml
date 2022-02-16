@@ -1,28 +1,41 @@
-name: run-blazemeter-test-actions-workflow
-env:
-  apikey: "38e53fd821771b102b5bfddc"
-  apisecret: "c9fb4b4be583657d952d3d25103b28590811e7b0f43bf8d7d9107b6345ae752f15a21d50"
-  testid: "10629904"
-  ContinuePipeline: "false"
-  showtaillog: "false"
-  inputstartfile: "BlazeDemo-Taurus.yaml"
-  Uploadfilechk: "true"
+# name: run-blazemeter-test-actions-workflow
+# env:
+#   apikey: "38e53fd821771b102b5bfddc"
+#   apisecret: "c9fb4b4be583657d952d3d25103b28590811e7b0f43bf8d7d9107b6345ae752f15a21d50"
+#   testid: "10629904"
+#   ContinuePipeline: "false"
+#   showtaillog: "false"
+#   inputstartfile: "BlazeDemo-Taurus.yaml"
+#   Uploadfilechk: "true"
   
-on: push
+# on: push
+# jobs:
+#   run-existing-test:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v2.3.4
+#       - name: Run Blazemeter test
+#         uses: blazerunner-g/BlazeAction@v7.9.7
+#         id: run-test
+#         with:
+#           apikey: ${{env.apikey}}
+#           apisecret: ${{env.apisecret}}
+#           testid: ${{env.testid}}
+#           ContinuePipeline: ${{env.ContinuePipeline}}
+#           showtaillog: ${{env.showtaillog}}
+#           Uploadfilechk: ${{env.Uploadfilechk}}
+#           inputstartfile: ${{env.inputstartfile}}
+      
+on:
+  repository_dispatch:
+    types: [test_result]
+
 jobs:
-  run-existing-test:
+  run_if_failure:
+    if: ${{ !github.event.client_payload.passed }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2.3.4
-      - name: Run Blazemeter test
-        uses: blazerunner-g/BlazeAction@v7.9.7
-        id: run-test
-        with:
-          apikey: ${{env.apikey}}
-          apisecret: ${{env.apisecret}}
-          testid: ${{env.testid}}
-          ContinuePipeline: ${{env.ContinuePipeline}}
-          showtaillog: ${{env.showtaillog}}
-          Uploadfilechk: ${{env.Uploadfilechk}}
-          inputstartfile: ${{env.inputstartfile}}
+      - env:
+          MESSAGE: ${{ github.event.client_payload.message }}
+        run: echo $MESSAGE
