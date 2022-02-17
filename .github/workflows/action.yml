@@ -2,100 +2,28 @@ name: run-blazemeter-test-actions-workflow
 env:
   apikey: "38e53fd821771b102b5bfddc"
   apisecret: "c9fb4b4be583657d952d3d25103b28590811e7b0f43bf8d7d9107b6345ae752f15a21d50"
-  testid: "10625965"
-  ContinuePipeline: "false"
-  showtaillog: "false"
-              
-on: push
+  testid: "10626081"
+  inputallfiles: "/github/workspace/Supporting Files"
+  Uploadfilechk: "true"
+  env_variable: '{"bearerToken": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c\"", "pass": "\"Test@123456\""}'
+
   
+on: push
 jobs:
-  git-sync:
+  run-existing-test:
     runs-on: ubuntu-latest
-    #runs-on: windows-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2.3.4
       - name: Run Blazemeter test
-        uses: blazerunner-g/BlazeAction@v7.9.7
+        uses: blazerunner-g/BlazeAction@v7.9.6
         id: run-test
         with:
           apikey: ${{env.apikey}}
           apisecret: ${{env.apisecret}}
           testid: ${{env.testid}}
-          ContinuePipeline: ${{env.ContinuePipeline}}
-          showtaillog: ${{env.showtaillog}}
-             
-  on-success:
-    needs: git-sync
-    runs-on: ubuntu-latest
-    #runs-on: windows-latest
-    steps: 
-      - shell: pwsh
-      - run: |
-            echo "The triggering workflow passed"
-            echo "api key : $apikey"
-            echo "$apikey"
-            echo "api key 1 : ${{ env.apikey }}"
-            echo "env variable : $EnvTestVar"
-            echo "$EnvTestVar"
-            echo "$env.EnvTestVar"
-            echo "$Env:EnvTestVar"
-            echo "env variable : ${{ env.EnvTestVar }}"
-            echo "env variable1 : $EnvTestVar1"
-            echo "$EnvTestVar1"
-            echo "$env.EnvTestVar1"
-            echo "$Env:EnvTestVar1"
-            echo "env variable1 : ${{ env.EnvTestVar1 }}"
-            echo "$EnvTestVar2"
-            echo "$env.EnvTestVar2"
-            echo "$Env:EnvTestVar2"
-            echo "env variable2 : $EnvTestVar2"
-            echo "env variable2 : ${{ env.EnvTestVar2 }}"
-            echo "$Path"
-            echo "$env.Path"
-            echo "$Env:Path"
-            echo "env Path : $Path"
-            echo "env Path : ${{ env.Path }}"
-            echo "$EnvTestVar3"
-            echo "$env.EnvTestVar3"
-            echo "$Env:EnvTestVar3"
-            echo "env variable3 : $EnvTestVar3"
-            echo "env variable3 : ${{ env.EnvTestVar3 }}"
-            echo "$env:EnvTestVar"
-            echo "$env:EnvTestVar1"
-            echo "$env:EnvTestVar2"
-            echo "$env:EnvTestVar2"
-            echo "$env:Path"
-            echo "$Env.EnvTestVar"
-            echo "$Env.EnvTestVar1"
-            echo "$Env.EnvTestVar2"
-            echo "$Env.EnvTestVar3"
-            echo "$Env.Path"
-            echo "env variable : ${{ secrets.EnvTestVar }}"
-            echo "env variable : ${{ secrets.EnvTestVar1 }}"
-            echo "env variable : ${{ secrets.EnvTestVar2 }}"
-            echo "env variable : ${{ secrets.EnvTestVar3 }}"
-            echo "env variable : ${{ secrets.Path }}"
-    
-# on: push
-# jobs:
-#   run-existing-test:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Checkout
-#         uses: actions/checkout@v2.3.4
-#       - name: Run Blazemeter test
-#         uses: blazerunner-g/BlazeAction@v7.9.7
-#         id: run-test
-#         with:
-#           apikey: ${{env.apikey}}
-#           apisecret: ${{env.apisecret}}
-#           testid: ${{env.testid}}
-#           ContinuePipeline: ${{env.ContinuePipeline}}
-#           showtaillog: ${{env.showtaillog}}
-#           #Uploadfilechk: ${{env.Uploadfilechk}}
-#           #inputstartfile: ${{env.inputstartfile}}
-#       - run: |
-#             echo ${{ env.BlazeMeterPublicURL }}
-#             echo ${{ secrets.BlazeMeterPublicURL }}
-            
+          inputallfiles: ${{env.inputallfiles}}
+          Uploadfilechk: ${{env.Uploadfilechk}}
+          env_variable: ${{env.env_variable}}
+
+
