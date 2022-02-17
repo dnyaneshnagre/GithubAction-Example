@@ -26,6 +26,7 @@ jobs:
           Uploadfilechk: ${{env.Uploadfilechk}}
           env_variable: ${{env.env_variable}}
       - name: test
+        id: demo
         run: |
           echo "url=yellow" >> $GITHUB_ENV
          
@@ -35,7 +36,7 @@ jobs:
     needs:  run-existing-test
     steps:
       - name: variable info
-        run: echo "${{ env.url}} "
+        run: echo "${{ needs.demo.url}} "
           
   
 
