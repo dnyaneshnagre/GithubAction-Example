@@ -10,8 +10,8 @@ on: push
   
 jobs:
   git-sync:
-    #runs-on: ubuntu-latest
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
+    #runs-on: windows-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2.3.4
@@ -44,8 +44,8 @@ jobs:
              
   on-success:
     needs: git-sync
-    #runs-on: ubuntu-latest
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
+    #runs-on: windows-latest
     steps: 
       - run: |
             echo 'The triggering workflow passed'
