@@ -55,5 +55,5 @@ jobs:
     #if: needs.git-sync.status == 'success'   #needs.github.event.workflow_run.conclusion == 'success'
     steps: 
       #- run: echo 'The triggering workflow passed'
-      - run: echo "This job's status is ${{ toJSON(job) }}."
-      #- run: echo "this is git-sync is ${{ git-sync }}."
+      #- run: echo "This job's status is ${{ toJSON(job) }}."
+      - run: echo "this is git-sync is ${{ toJSON(git-sync) }}."
