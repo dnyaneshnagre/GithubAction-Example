@@ -1,10 +1,13 @@
-name: Github-Action
+name: run-blazemeter-test-actions-workflow
 env:
   apikey: "38e53fd821771b102b5bfddc"
   apisecret: "c9fb4b4be583657d952d3d25103b28590811e7b0f43bf8d7d9107b6345ae752f15a21d50"
   testid: "10626081"
-  ContinuePipeline: "false"
-  showtaillog: "false"
+  inputallfiles: "/github/workspace/Supporting Files"
+  Uploadfilechk: "true"
+  env_variable: '{"bearerToken": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c\"", "pass": "\"Test@123456\""}'
+
+  
 on: push
 jobs:
   run-existing-test:
@@ -19,28 +22,6 @@ jobs:
           apikey: ${{env.apikey}}
           apisecret: ${{env.apisecret}}
           testid: ${{env.testid}}
-          ContinuePipeline: ${{env.ContinuePipeline}}
-          showtaillog: ${{env.showtaillog}}
-      - id: run-test1
-        run: |
-          export FIRST='{"test11":"test123","test22":"test123"}'
-          echo "::set-output name=first::${FIRST}"
-    outputs:
-      first: $${{ steps.run-test1.outputs.first}}
-  first-job:
-    needs: run-existing-test
-    runs-on: ubuntu-latest 
-    steps:
-    - id: identify
-      run: |
-        export JSON_DATA='{"test":"test123","test1":"test123"}'
-        echo "::set-output name=json_data::${JSON_DATA}"
-    outputs:
-      json_data: ${{ steps.identify.outputs.json_data }}
-  second-job:
-    needs: first-job
-    runs-on: ubuntu-latest
-    steps:
-    - run: |
-        echo "JSON Data :- ${{ needs.first-job.outputs.json_data }}"
-        echo "First Data :- ${{ needs.run-existing-test.outputs.first}}"
+          inputallfiles: ${{env.inputallfiles}}
+          Uploadfilechk: ${{env.Uploadfilechk}}
+          env_variable: ${{env.env_variable}}
