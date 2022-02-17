@@ -7,7 +7,6 @@ env:
   Uploadfilechk: "true"
   env_variable: '{"bearerToken": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c\"", "pass": "\"Test@123456\""}'
 
-  
 on: push
 jobs:
   run-existing-test:
