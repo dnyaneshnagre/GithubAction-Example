@@ -1,44 +1,28 @@
-name: run-blazemeter-test-actions-workflow
-env:
-  apikey: "38e53fd821771b102b5bfddc"
-  apisecret: "c9fb4b4be583657d952d3d25103b28590811e7b0f43bf8d7d9107b6345ae752f15a21d50"
-  testid: "10626081"
-  inputallfiles: "/github/workspace/Supporting Files"
-  Uploadfilechk: "true"
-  env_variable: '{"bearerToken": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c\"", "pass": "\"Test@123456\""}'
+name: Demonstration
+on:
+  push:
+    branches: [master]
 
-  
-on: push
 jobs:
-  run-existing-test:
+  first-job:
+    runs-on: ubuntu-latest  
+    steps:
+    - id: identify
+      run: |
+        # use bash variable expression to get the substring
+        export GIT_PR_SHA="${{ github.sha }}"
+        export GIT_PR_SHA_SHORT="${GIT_PR_SHA:0:10}"
+
+        echo "::set-output name=git_pr_sha::${GIT_PR_SHA}"
+        echo "::set-output name=git_pr_sha_short::${GIT_PR_SHA_SHORT}"
+    outputs:
+      git_pr_sha: ${{ steps.identify.outputs.git_pr_sha }}
+      git_pr_sha_short: ${{ steps.identify.outputs.git_pr_sha_short }}
+
+  second-job:
+    needs: first-job
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2.3.4
-      - name: Run Blazemeter test
-        uses: blazerunner-g/BlazeAction@v7.9.6
-        id: run-test
-        with:
-          apikey: ${{env.apikey}}
-          apisecret: ${{env.apisecret}}
-          testid: ${{env.testid}}
-          inputallfiles: ${{env.inputallfiles}}
-          Uploadfilechk: ${{env.Uploadfilechk}}
-          env_variable: ${{env.env_variable}}
-      - name: test
-        id: demo
-        run: |
-          echo "url=yellow" >> $GITHUB_ENV
-         
-       
-  on-success:
-    runs-on: ubuntu-latest
-    needs:  run-existing-test
-    steps:
-      - name: variable info
-        run: |
-         echo "${{env.url}} "
-          
-  
-
-
+    - run: |
+        echo "${{ needs.first-job.outputs.git_pr_sha }}"
+        echo "${{ needs.first-job.outputs.git_pr_sha_short }}"
