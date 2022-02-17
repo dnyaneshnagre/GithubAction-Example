@@ -111,6 +111,11 @@ jobs:
             echo "$Env.EnvTestVar2"
             echo "$Env.EnvTestVar3"
             echo "$Env.Path"
+            echo "env variable : ${{ secrets.EnvTestVar }}"
+            echo "env variable : ${{ secrets.EnvTestVar1 }}"
+            echo "env variable : ${{ secrets.EnvTestVar2 }}"
+            echo "env variable : ${{ secrets.EnvTestVar3 }}"
+            echo "env variable : ${{ secrets.Path }}"
     
 # on: push
 # jobs:
