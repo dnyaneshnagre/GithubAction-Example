@@ -27,14 +27,14 @@ jobs:
           env_variable: ${{env.env_variable}}
       - name: setValue
         id:  random-color-generator
-        run: echo '::set-output name=SELECTED_COLOR::green'
+        run: export URL='{"url":"demo.com"}'
        
   on-success:
     runs-on: ubuntu-latest
     needs:  run-existing-test
     steps:
       - name: Get color
-        run: echo "The selected color is ${{ needs.random-color-generator.outputs.SELECTED_COLOR }}"
+        run: echo "The selected color is ${{ needs.random-color-generator.URL}}"
           
   
 
