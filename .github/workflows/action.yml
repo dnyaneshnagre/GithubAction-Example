@@ -23,5 +23,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: |
-        echo "${{ needs.first-job.outputs.git_pr_sha }}"
-        echo "${{ needs.first-job.outputs.git_pr_sha_short }}"
+        echo "Values:-   ${{ needs.first-job.outputs.git_pr_sha }}"
