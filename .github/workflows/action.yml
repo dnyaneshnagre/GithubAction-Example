@@ -54,6 +54,10 @@ jobs:
     runs-on: ubuntu-latest
     #if: needs.git-sync.status == 'success'   #needs.github.event.workflow_run.conclusion == 'success'
     steps: 
+      - run: |
+            echo 'The triggering workflow passed'
+            echo "env variable1 ${{ needs.env.BlazeMeterPublicURL }}"
+            echo "env variable2 ${{ needs.secrets.BlazeMeterPublicURL }}"
       #- run: echo 'The triggering workflow passed'
-      - run: echo "This job's status is ${{ toJSON(job) }}."
+      #- run: echo "This job's status is ${{ toJSON(job) }}."
       #- run: echo "this is git-sync is ${{ git-sync }}."
