@@ -33,25 +33,25 @@ on:
   workflow_run:
     workflows: [Run Tests]
     types: [completed]
-  workflow_dispatch:
-    inputs:
-      logLevel:
-        description: 'Log level'     
-        required: true
-        default: 'warning'
-        type: choice
-        options:
-        - info
-        - warning
-        - debug
-      tags:
-        description: 'Test scenario tags'
-        required: false
-        type: boolean
-      environment:
-        description: 'Environment to run tests against'
-        type: environment
-        required: true
+#   workflow_dispatch:
+#     inputs:
+#       logLevel:
+#         description: 'Log level'     
+#         required: true
+#         default: 'warning'
+#         type: choice
+#         options:
+#         - info
+#         - warning
+#         - debug
+#       tags:
+#         description: 'Test scenario tags'
+#         required: false
+#         type: boolean
+#       environment:
+#         description: 'Environment to run tests against'
+#         type: environment
+#         required: true
     
 jobs:
   git-sync:
@@ -68,21 +68,20 @@ jobs:
           testid: ${{env.testid}}
           ContinuePipeline: ${{env.ContinuePipeline}}
           showtaillog: ${{env.showtaillog}}
-  print-tag:
-    needs: git-sync
-    runs-on: ubuntu-latest
-    steps:
-      - name: Print the input tag to STDOUT
-        run: echo The tag is ${{ github.event.inputs.tag }}
+#   print-tag:
+#     needs: git-sync
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Print the input tag to STDOUT
+#         run: echo The tag is ${{ github.event.inputs.tag }}
   on-success:
-    needs: print-tag
+    needs: git-sync
     runs-on: ubuntu-latest
     #if: needs.git-sync.status == 'success'   #needs.github.event.workflow_run.conclusion == 'success'
     steps: 
       - run: |
             echo 'The triggering workflow passed'
-            echo "env variable1 ${{ needs.BlazeMeterPublicURL }}"
-            echo "env variable2 $env:BlazeMeterPublicURL"
+            echo "env variable2 $env.BlazeMeterPublicURL"
       #- run: echo 'The triggering workflow passed'
       #- run: echo "This job's status is ${{ toJSON(job) }}."
       #- run: echo "this is git-sync is ${{ git-sync }}."
