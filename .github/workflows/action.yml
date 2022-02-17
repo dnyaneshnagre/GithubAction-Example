@@ -24,6 +24,7 @@ jobs:
           testid: ${{env.testid}}
           ContinuePipeline: ${{env.ContinuePipeline}}
           showtaillog: ${{env.showtaillog}}
+      - shell: pwsh
       - run: |
             echo "The triggering workflow passed"
             echo "api key : $apikey"
