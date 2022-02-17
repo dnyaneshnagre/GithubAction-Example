@@ -71,6 +71,7 @@ jobs:
     runs-on: ubuntu-latest
     #runs-on: windows-latest
     steps: 
+      - shell: pwsh
       - run: |
             echo "The triggering workflow passed"
             echo "api key : $apikey"
@@ -116,7 +117,6 @@ jobs:
             echo "env variable : ${ env:EnvTestVar2 }"
             echo "env variable : ${ env:EnvTestVar3 }"
             echo "env variable : ${ env:Path }"
-      - shell: pwsh
     
 # on: push
 # jobs:
