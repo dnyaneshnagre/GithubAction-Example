@@ -69,12 +69,13 @@ jobs:
           ContinuePipeline: ${{env.ContinuePipeline}}
           showtaillog: ${{env.showtaillog}}
   print-tag:
+    needs: git-sync
     runs-on: ubuntu-latest
     steps:
       - name: Print the input tag to STDOUT
         run: echo The tag is ${{ github.event.inputs.tag }}
   on-success:
-    needs: git-sync
+    needs: print-tag
     runs-on: ubuntu-latest
     #if: needs.git-sync.status == 'success'   #needs.github.event.workflow_run.conclusion == 'success'
     steps: 
