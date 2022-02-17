@@ -34,7 +34,7 @@ jobs:
     needs:  run-existing-test
     steps:
       - name: variable info
-        run: echo "URL:- $url "
+        run: echo "URL:- $run-existing-test.steps.url "
           
   
 
