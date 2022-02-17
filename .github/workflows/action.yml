@@ -25,45 +25,45 @@ jobs:
           ContinuePipeline: ${{env.ContinuePipeline}}
           showtaillog: ${{env.showtaillog}}
       - run: |
-            echo 'The triggering workflow passed'
-            echo 'api key : $apikey'
-            echo $apikey
-            echo 'api key 1 : ${{ env.apikey }}'
-            echo 'env variable : $envTestVar'
-            echo $envTestVar
-            echo $env.envTestVar
-            echo $Env:envTestVar
-            echo 'env variable : ${{ env.envTestVar }}'
-            echo 'env variable1 : $envTestVar1'
-            echo $envTestVar1
-            echo $env.envTestVar1
-            echo $Env:envTestVar1
-            echo 'env variable1 : ${{ env.envTestVar1 }}'
-            echo $envTestVar2
-            echo $env.envTestVar2
-            echo $Env:envTestVar2
-            echo 'env variable2 : $envTestVar2'
-            echo 'env variable2 : ${{ env.envTestVar2 }}'
-            echo $Path
-            echo $env.Path
-            echo $Env:Path
-            echo 'env Path : $Path'
-            echo 'env Path : ${{ env.Path }}'
-            echo $envTestVar3
-            echo $env.envTestVar3
-            echo $Env:envTestVar3
-            echo 'env variable2 : $envTestVar3'
-            echo 'env variable2 : ${{ env.envTestVar3 }}'
-            echo $env:envTestVar
-            echo $env:envTestVar1
-            echo $env:envTestVar2
-            echo $env:envTestVar2
-            echo $env:Path
-            echo $Env.envTestVar
-            echo $Env.envTestVar1
-            echo $Env.envTestVar2
-            echo $Env.envTestVar3
-            echo $Env.Path
+            echo "The triggering workflow passed"
+            echo "api key : $apikey"
+            echo "$apikey"
+            echo "api key 1 : ${{ env.apikey }}"
+            echo "env variable : $envTestVar"
+            echo "$envTestVar"
+            echo "$env.envTestVar"
+            echo "$Env:envTestVar"
+            echo "env variable : ${{ env.envTestVar }}"
+            echo "env variable1 : $envTestVar1"
+            echo "$envTestVar1"
+            echo "$env.envTestVar1"
+            echo "$Env:envTestVar1"
+            echo "env variable1 : ${{ env.envTestVar1 }}"
+            echo "$envTestVar2"
+            echo "$env.envTestVar2"
+            echo "$Env:envTestVar2"
+            echo "env variable2 : $envTestVar2"
+            echo "env variable2 : ${{ env.envTestVar2 }}"
+            echo "$Path"
+            echo "$env.Path"
+            echo "$Env:Path"
+            echo "env Path : $Path"
+            echo "env Path : ${{ env.Path }}"
+            echo "$envTestVar3"
+            echo "$env.envTestVar3"
+            echo "$Env:envTestVar3"
+            echo "env variable2 : $envTestVar3"
+            echo "env variable2 : ${{ env.envTestVar3 }}"
+            echo "$env:envTestVar"
+            echo "$env:envTestVar1"
+            echo "$env:envTestVar2"
+            echo "$env:envTestVar2"
+            echo "$env:Path"
+            echo "$Env.envTestVar"
+            echo "$Env.envTestVar1"
+            echo "$Env.envTestVar2"
+            echo "$Env.envTestVar3"
+            echo "$Env.Path"
             
              
   on-success:
@@ -72,45 +72,45 @@ jobs:
     #runs-on: windows-latest
     steps: 
       - run: |
-            echo 'The triggering workflow passed'
-            echo 'api key : $apikey'
-            echo $apikey
-            echo 'api key 1 : ${{ env.apikey }}'
-            echo 'env variable : $envTestVar'
-            echo $envTestVar
-            echo $env.envTestVar
-            echo $Env:envTestVar
-            echo 'env variable : ${{ env.envTestVar }}'
-            echo 'env variable1 : $envTestVar1'
-            echo $envTestVar1
-            echo $env.envTestVar1
-            echo $Env:envTestVar1
-            echo 'env variable1 : ${{ env.envTestVar1 }}'
-            echo $envTestVar2
-            echo $env.envTestVar2
-            echo $Env:envTestVar2
-            echo 'env variable2 : $envTestVar2'
-            echo 'env variable2 : ${{ env.envTestVar2 }}'
-            echo $Path
-            echo $env.Path
-            echo $Env:Path
-            echo 'env Path : $Path'
-            echo 'env Path : ${{ env.Path }}'
-            echo $envTestVar3
-            echo $env.envTestVar3
-            echo $Env:envTestVar3
-            echo 'env variable2 : $envTestVar3'
-            echo 'env variable2 : ${{ env.envTestVar3 }}'
-            echo $env:envTestVar
-            echo $env:envTestVar1
-            echo $env:envTestVar2
-            echo $env:envTestVar2
-            echo $env:Path
-            echo $Env.envTestVar
-            echo $Env.envTestVar1
-            echo $Env.envTestVar2
-            echo $Env.envTestVar3
-            echo $Env.Path
+            echo "The triggering workflow passed"
+            echo "api key : $apikey"
+            echo "$apikey"
+            echo "api key 1 : ${{ env.apikey }}"
+            echo "env variable : $envTestVar"
+            echo "$envTestVar"
+            echo "$env.envTestVar"
+            echo "$Env:envTestVar"
+            echo "env variable : ${{ env.envTestVar }}"
+            echo "env variable1 : $envTestVar1"
+            echo "$envTestVar1"
+            echo "$env.envTestVar1"
+            echo "$Env:envTestVar1"
+            echo "env variable1 : ${{ env.envTestVar1 }}"
+            echo "$envTestVar2"
+            echo "$env.envTestVar2"
+            echo "$Env:envTestVar2"
+            echo "env variable2 : $envTestVar2"
+            echo "env variable2 : ${{ env.envTestVar2 }}"
+            echo "$Path"
+            echo "$env.Path"
+            echo "$Env:Path"
+            echo "env Path : $Path"
+            echo "env Path : ${{ env.Path }}"
+            echo "$envTestVar3"
+            echo "$env.envTestVar3"
+            echo "$Env:envTestVar3"
+            echo "env variable2 : $envTestVar3"
+            echo "env variable2 : ${{ env.envTestVar3 }}"
+            echo "$env:envTestVar"
+            echo "$env:envTestVar1"
+            echo "$env:envTestVar2"
+            echo "$env:envTestVar2"
+            echo "$env:Path"
+            echo "$Env.envTestVar"
+            echo "$Env.envTestVar1"
+            echo "$Env.envTestVar2"
+            echo "$Env.envTestVar3"
+            echo "$Env.Path"
     
 # on: push
 # jobs:
