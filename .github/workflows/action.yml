@@ -33,27 +33,27 @@ jobs:
             echo $envTestVar
             echo $env.envTestVar
             echo $Env:envTestVar
-            echo 'env variable : ${{ $env.envTestVar }}'
+            echo 'env variable : ${{ env.envTestVar }}'
             echo 'env variable1 : $envTestVar1'
             echo $envTestVar1
             echo $env.envTestVar1
             echo $Env:envTestVar
-            echo 'env variable1 : ${{ $env.envTestVar1 }}'
+            echo 'env variable1 : ${{ env.envTestVar1 }}'
             echo $envTestVar2
             echo $env.envTestVar2
             echo $Env:envTestVar
             echo 'env variable2 : $envTestVar2'
-            echo 'env variable2 : ${{ $env.envTestVar2 }}'
+            echo 'env variable2 : ${{ env.envTestVar2 }}'
             echo $Path
             echo $env.Path
             echo $Env:Path
             echo 'env Path : $Path'
-            echo 'env Path : ${{ $env.Path }}'
+            echo 'env Path : ${{ env.Path }}'
             echo $envTestVar3
             echo $env.envTestVar3
             echo $Env:envTestVar3
             echo 'env variable2 : $envTestVar3'
-            echo 'env variable2 : ${{ $env.envTestVar3 }}'
+            echo 'env variable2 : ${{ env.envTestVar3 }}'
             echo $env:envTestVar
             echo $env:envTestVar1
             echo $env:envTestVar2
@@ -74,27 +74,27 @@ jobs:
             echo $envTestVar
             echo $env.envTestVar
             echo $Env:envTestVar
-            echo 'env variable : ${{ $env.envTestVar }}'
+            echo 'env variable : ${{ env.envTestVar }}'
             echo 'env variable1 : $envTestVar1'
             echo $envTestVar1
             echo $env.envTestVar1
             echo $Env:envTestVar
-            echo 'env variable1 : ${{ $env.envTestVar1 }}'
+            echo 'env variable1 : ${{ env.envTestVar1 }}'
             echo $envTestVar2
             echo $env.envTestVar2
             echo $Env:envTestVar
             echo 'env variable2 : $envTestVar2'
-            echo 'env variable2 : ${{ $env.envTestVar2 }}'
+            echo 'env variable2 : ${{ env.envTestVar2 }}'
             echo $Path
             echo $env.Path
             echo $Env:Path
             echo 'env Path : $Path'
-            echo 'env Path : ${{ $env.Path }}'
+            echo 'env Path : ${{ env.Path }}'
             echo $envTestVar3
             echo $env.envTestVar3
             echo $Env:envTestVar3
             echo 'env variable2 : $envTestVar3'
-            echo 'env variable2 : ${{ $env.envTestVar3 }}'
+            echo 'env variable2 : ${{ env.envTestVar3 }}'
             echo $env:envTestVar
             echo $env:envTestVar1
             echo $env:envTestVar2
