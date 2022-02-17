@@ -45,15 +45,30 @@ jobs:
           testid: ${{env.testid}}
           ContinuePipeline: ${{env.ContinuePipeline}}
           showtaillog: ${{env.showtaillog}}
+      - run: |
+            echo 'The triggering workflow passed'
+            echo 'api key : $apikey'
+            ench 'api key 1 : ${{ env.apikey }}'
+            echo 'env variable : $envTestVar'
+            echo 'env variable : ${{ env.envTestVar }}'
+            echo 'env variable1 : $envTestVar1'
+            echo 'env variable1 : ${{ env.envTestVar1 }}'
+            echo 'env variable2 : $envTestVar2'
+            echo 'env variable2 : ${{ env.envTestVar2 }}'
+             
   on-success:
     needs: git-sync
     runs-on: ubuntu-latest
     #runs-on: windows-latest
     steps: 
       - run: |
-            echo 'The triggering workflow passed'
-            echo $apikey
-            echo $envTestVar
-            echo $envTestVar1
-            echo $envTestVar2
+            echo 'The triggering workflow passed new'
+            echo 'api key : $apikey'
+            ench 'api key 1 : ${{ env.apikey }}'
+            echo 'env variable : $envTestVar'
+            echo 'env variable : ${{ env.envTestVar }}'
+            echo 'env variable1 : $envTestVar1'
+            echo 'env variable1 : ${{ env.envTestVar1 }}'
+            echo 'env variable2 : $envTestVar2'
+            echo 'env variable2 : ${{ env.envTestVar2 }}'
             
