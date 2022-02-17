@@ -24,47 +24,6 @@ jobs:
           testid: ${{env.testid}}
           ContinuePipeline: ${{env.ContinuePipeline}}
           showtaillog: ${{env.showtaillog}}
-      - run: |
-            echo "The triggering workflow passed"
-            echo "api key : $apikey"
-            echo "$apikey"
-            echo "api key 1 : ${{ env.apikey }}"
-            echo "env variable : $EnvTestVar"
-            echo "$EnvTestVar"
-            echo "$env.EnvTestVar"
-            echo "$Env:EnvTestVar"
-            echo "env variable : ${{ env.EnvTestVar }}"
-            echo "env variable1 : $EnvTestVar1"
-            echo "$EnvTestVar1"
-            echo "$env.EnvTestVar1"
-            echo "$Env:EnvTestVar1"
-            echo "env variable1 : ${{ env.EnvTestVar1 }}"
-            echo "$EnvTestVar2"
-            echo "$env.EnvTestVar2"
-            echo "$Env:EnvTestVar2"
-            echo "env variable2 : $EnvTestVar2"
-            echo "env variable2 : ${{ env.EnvTestVar2 }}"
-            echo "$Path"
-            echo "$env.Path"
-            echo "$Env:Path"
-            echo "env Path : $Path"
-            echo "env Path : ${{ env.Path }}"
-            echo "$EnvTestVar3"
-            echo "$env.EnvTestVar3"
-            echo "$Env:EnvTestVar3"
-            echo "env variable3 : $EnvTestVar3"
-            echo "env variable3 : ${{ env.EnvTestVar3 }}"
-            echo "$env:EnvTestVar"
-            echo "$env:EnvTestVar1"
-            echo "$env:EnvTestVar2"
-            echo "$env:EnvTestVar2"
-            echo "$env:Path"
-            echo "$Env.EnvTestVar"
-            echo "$Env.EnvTestVar1"
-            echo "$Env.EnvTestVar2"
-            echo "$Env.EnvTestVar3"
-            echo "$Env.Path"
-            
              
   on-success:
     needs: git-sync
