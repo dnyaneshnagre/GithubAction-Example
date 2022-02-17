@@ -56,4 +56,4 @@ jobs:
     steps: 
       #- run: echo 'The triggering workflow passed'
       #- run: echo "This job's status is ${{ toJSON(job) }}."
-      - run: echo "this is git-sync is ${{ toJSON(git-sync) }}."
+      - run: echo "this is git-sync is ${{ git-sync }}."
