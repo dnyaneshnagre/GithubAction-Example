@@ -111,6 +111,12 @@ jobs:
             echo "$Env.EnvTestVar2"
             echo "$Env.EnvTestVar3"
             echo "$Env.Path"
+            echo "env variable : ${ env:EnvTestVar }"
+            echo "env variable : ${ env:EnvTestVar1 }"
+            echo "env variable : ${ env:EnvTestVar2 }"
+            echo "env variable : ${ env:EnvTestVar3 }"
+            echo "env variable : ${ env:Path }"
+      - shell: pwsh
     
 # on: push
 # jobs:
