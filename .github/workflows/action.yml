@@ -24,7 +24,7 @@ jobs:
           testid: ${{env.testid}}
           ContinuePipeline: ${{env.ContinuePipeline}}
           showtaillog: ${{env.showtaillog}}
-      - name: Test    
+  
         shell: pwsh
       - run: |
             echo "The triggering workflow passed"
