@@ -26,6 +26,7 @@ jobs:
           Uploadfilechk: ${{env.Uploadfilechk}}
           env_variable: ${{env.env_variable}}
       - name: setValue
+        id:  random-color-generator
         run: echo '::set-output name=SELECTED_COLOR::green'
        
   on-success:
@@ -33,7 +34,7 @@ jobs:
     needs:  run-existing-test
     steps:
       - name: Get color
-        run: echo "The selected color is ${{ needs.jobs.run-existing-test.steps.outputs.SELECTED_COLOR }}"
+        run: echo "The selected color is ${{ needs.random-color-generator.outputs.SELECTED_COLOR }}"
           
   
 
