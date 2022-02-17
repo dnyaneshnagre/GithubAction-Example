@@ -32,13 +32,16 @@ jobs:
             echo 'env variable : $envTestVar'
             echo $envTestVar
             echo $env.envTestVar
+            echo $Env:envTestVar
             echo 'env variable : ${{ env.envTestVar }}'
             echo 'env variable1 : $envTestVar1'
             echo $envTestVar1
             echo $env.envTestVar1
+            echo $Env:envTestVar
             echo 'env variable1 : ${{ env.envTestVar1 }}'
             echo $envTestVar2
             echo $env.envTestVar2
+            echo $Env:envTestVar
             echo 'env variable2 : $envTestVar2'
             echo 'env variable2 : ${{ env.envTestVar2 }}'
              
@@ -55,13 +58,16 @@ jobs:
             echo 'env variable : $envTestVar'
             echo $envTestVar
             echo $env.envTestVar
+            echo $Env:envTestVar
             echo 'env variable : ${{ env.envTestVar }}'
             echo 'env variable1 : $envTestVar1'
             echo $envTestVar1
             echo $env.envTestVar1
+            echo $Env:envTestVar
             echo 'env variable1 : ${{ env.envTestVar1 }}'
             echo $envTestVar2
             echo $env.envTestVar2
+            echo $Env:envTestVar
             echo 'env variable2 : $envTestVar2'
             echo 'env variable2 : ${{ env.envTestVar2 }}'
     
