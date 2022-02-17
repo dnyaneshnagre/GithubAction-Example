@@ -47,12 +47,13 @@ jobs:
           showtaillog: ${{env.showtaillog}}
   on-success:
     needs: git-sync
-    #runs-on: ubuntu-latest
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
+    #runs-on: windows-latest
     steps: 
       - run: |
             echo 'The triggering workflow passed'
-            echo $env:envTestVar
-            echo $env.envTestVar1
-            echo $env.envTestVar2
+            echo $apikey
+            echo $envTestVar
+            echo $envTestVar1
+            echo $envTestVar2
             
