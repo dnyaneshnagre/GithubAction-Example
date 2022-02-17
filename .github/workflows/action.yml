@@ -31,11 +31,8 @@ jobs:
   on-success:
     runs-on: ubuntu-latest
     steps:
-      - name: Set selected color
-       
-        id: random-color-generator
       - name: Get color
-        run: echo "The selected color is ${{ needs.jobs.run-existing-test.steps.random-color-generator.outputs.SELECTED_COLOR }}"
+        run: echo "The selected color is ${{ needs.jobs.run-existing-test.steps.outputs.SELECTED_COLOR }}"
           
   
 
