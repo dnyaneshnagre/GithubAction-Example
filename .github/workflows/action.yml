@@ -51,6 +51,6 @@ jobs:
     steps: 
       - run: |
             echo 'The triggering workflow passed'
-            echo "env variable1 ${{ $env.envTestVar}}"
-            echo "env variable2 ${{ $env.envTestVar1}}"
+            echo "env variable1 ${{ env.envTestVar}}"
+            echo "env variable2 ${{ env.envTestVar1}}"
             
