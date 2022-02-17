@@ -36,7 +36,8 @@ jobs:
     needs:  run-existing-test
     steps:
       - name: variable info
-        run: echo "${{ needs.demo.url}} "
+        run: |
+         echo "${{env.url}} "
           
   
 
