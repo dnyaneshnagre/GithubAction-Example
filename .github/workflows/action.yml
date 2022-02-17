@@ -54,7 +54,11 @@ jobs:
             echo $Env:envTestVar3
             echo 'env variable2 : $envTestVar3'
             echo 'env variable2 : ${{ env.envTestVar3 }}'
-            
+            echo $env:envTestVar
+            echo $env:envTestVar1
+            echo $env:envTestVar2
+            echo $env:envTestVar2
+            echo $env:Path
              
   on-success:
     needs: git-sync
@@ -91,6 +95,11 @@ jobs:
             echo $Env:envTestVar3
             echo 'env variable2 : $envTestVar3'
             echo 'env variable2 : ${{ env.envTestVar3 }}'
+            echo $env:envTestVar
+            echo $env:envTestVar1
+            echo $env:envTestVar2
+            echo $env:envTestVar2
+            echo $env:Path
     
 # on: push
 # jobs:
