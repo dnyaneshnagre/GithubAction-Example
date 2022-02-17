@@ -48,7 +48,7 @@ jobs:
       - run: |
             echo 'The triggering workflow passed'
             echo 'api key : $apikey'
-            ench 'api key 1 : ${{ env.apikey }}'
+            echo 'api key 1 : ${{ env.apikey }}'
             echo 'env variable : $envTestVar'
             echo 'env variable : ${{ env.envTestVar }}'
             echo 'env variable1 : $envTestVar1'
@@ -64,7 +64,7 @@ jobs:
       - run: |
             echo 'The triggering workflow passed new'
             echo 'api key : $apikey'
-            ench 'api key 1 : ${{ env.apikey }}'
+            echo 'api key 1 : ${{ env.apikey }}'
             echo 'env variable : $envTestVar'
             echo 'env variable : ${{ env.envTestVar }}'
             echo 'env variable1 : $envTestVar1'
