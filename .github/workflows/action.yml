@@ -39,6 +39,10 @@ jobs:
         echo "env variable ${{env.EnvTestVar2}}"
         echo "env variable ${{env.EnvTestVar3}}"
         echo "env variable ${{env.Path}}"
+    - name: powershell 
+      shell: pwsh
+      run: |
+        echo Get-Content -Path Test
     outputs:
       json_data: ${{ steps.identify.outputs.json_data }}
       
