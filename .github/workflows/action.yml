@@ -1,7 +1,28 @@
-name: Demonstration
+name: Demo
+
 on: push
 
-# jobs:
+jobs:
+  first-job:
+    runs-on: ubuntu-latest  
+    steps:
+    - id: identify
+      run: |
+        export JSON_DATA='{"test":"test123"}'
+        echo "::set-output name=json_data::${JSON_DATA}"
+    outputs:
+      json_data: ${{ steps.identify.outputs.json_data }}
+      
+  second-job:
+    needs: first-job
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Json Data"
+        run: echo "JSON_DATA for first job $Json_Data"
+        env:
+          Json_Data: ${{ needs.first-job.outputs.json_data }}
+          
+
 #   first-job:
 #     runs-on: ubuntu-latest  
 #     steps:
@@ -26,26 +47,26 @@ on: push
 #       with:
 #         name: my-artifact
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
 
-    steps:
-    - uses: actions/checkout@v2
+#     steps:
+#     - uses: actions/checkout@v2
 
-    - name: Cache Primes
-      id: cache-primes
-      uses: actions/cache@v2
-      with:
-        path: prime-numbers
-        key: ${{ runner.os }}-primes
+#     - name: Cache Primes
+#       id: cache-primes
+#       uses: actions/cache@v2
+#       with:
+#         path: prime-numbers
+#         key: ${{ runner.os }}-primes
 
-    - name: Generate Prime Numbers
-      if: steps.cache-primes.outputs.cache-hit != 'true'
-      run: /generate-primes.sh -d prime-numbers
+#     - name: Generate Prime Numbers
+#       if: steps.cache-primes.outputs.cache-hit != 'true'
+#       run: /generate-primes.sh -d prime-numbers
 
-    - name: Use Prime Numbers
-      run: /primes.sh -d prime-numbers
+#     - name: Use Prime Numbers
+#       run: /primes.sh -d prime-numbers
 
 # jobs:
 #   build:
