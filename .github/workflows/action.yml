@@ -1,4 +1,4 @@
-name: Demo
+name: Github-Action-Demo
 env:
   apikey: "38e53fd821771b102b5bfddc"
   apisecret: "c9fb4b4be583657d952d3d25103b28590811e7b0f43bf8d7d9107b6345ae752f15a21d50"
@@ -12,7 +12,19 @@ jobs:
   first-job:
     runs-on: ubuntu-latest  
     steps:
-    - id: identify
+    - name: Checkout
+      uses: actions/checkout@v2.3.4
+    - name: Run Blazemeter test
+      uses: blazerunner-g/BlazeAction@v7.9.6
+      id: run-test
+      with:
+        apikey: ${{env.apikey}}
+        apisecret: ${{env.apisecret}}
+        testid: ${{env.testid}}
+        ContinuePipeline: ${{env.ContinuePipeline}}
+        showtaillog: ${{env.showtaillog}} 
+    - name: Set Variable  
+      id: identify
       run: |
         export JSON_DATA='{"test":"test12334545"}'
         echo "::set-output name=json_data::${JSON_DATA}"
@@ -23,7 +35,7 @@ jobs:
     needs: first-job
     runs-on: ubuntu-latest
     steps:
-      - name: "Json Data"
+      - name: "Get Variable From first Job"
         run: echo "first job data $Json_Data"
         env:
           Json_Data: ${{ needs.first-job.outputs.json_data }}
@@ -31,10 +43,10 @@ jobs:
     needs: [second-job, first-job]
     runs-on: ubuntu-latest
     steps:
-      - name: "Json Data third job"
-        run: echo "first job data  $Json_Data_one"
+      - name: "Get Variable From first Job"
+        run: echo "first job data  $Json_Data"
         env:
-          Json_Data_one: ${{ needs.first-job.outputs.json_data }}
+          Json_Data: ${{ needs.first-job.outputs.json_data }}
 
 # jobs:
 #   github-action:
