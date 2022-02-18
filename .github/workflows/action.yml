@@ -46,7 +46,7 @@ jobs:
       - name: "Get Variable From first Job"
         run: |
           echo "first job data $Json_Data"
-          echo "Test Result output $json_data1"
+          echo "Test Result output $Json_data1"
         env:
           Json_Data: ${{ needs.first-job.outputs.json_data }}
           Json_data1: ${{ needs.first-job.outputs.json_data1 }}
