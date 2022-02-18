@@ -35,6 +35,7 @@ jobs:
       run: |
         $result = Get-Content -Path Test
         echo "::set-output name=testResult::$result"
+        Get-Content -Path Test
         $env:EnvTestVar
         $env:EnvTestVar1
         $env:EnvTestVar2
