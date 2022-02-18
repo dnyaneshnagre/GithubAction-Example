@@ -1,27 +1,42 @@
 name: Demonstration
 on: push
-  
+
 jobs:
-  first-job:
-    runs-on: ubuntu-latest  
-    steps:
-    - uses: actions/checkout@v2
-
-    - run: mkdir -p path/to/artifact
-
-    - run: echo {"url":"demo.com"} > path/to/artifact/world.txt
-
-    - uses: actions/upload-artifact@v2
-      with:
-        name: my-artifact
-        path: path/to/artifact/world.txt
-
-  second-job:
-    needs: first-job
+  cache-data:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/cache@v2
+        id: cache-packages  # give it a name for checking the cache hit-or-not
+        with:
+          path: ./packages/  # what we cache: the folder
+          key: ${{ runner.os }}-packages-${{ hashFiles('**/packages*.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-packages-
+      - run: package-installer packages.txt
+        if: steps.cache-packages.outputs.cache-hit != 'true'
 
-    - uses: actions/download-artifact@v2
-      with:
-        name: my-artifact
+  
+# jobs:
+#   first-job:
+#     runs-on: ubuntu-latest  
+#     steps:
+#     - uses: actions/checkout@v2
+
+#     - run: mkdir -p path/to/artifact
+
+#     - run: echo {"url":"demo.com"} > path/to/artifact/world.txt
+
+#     - uses: actions/upload-artifact@v2
+#       with:
+#         name: my-artifact
+#         path: path/to/artifact/world.txt
+
+#   second-job:
+#     needs: first-job
+#     runs-on: ubuntu-latest
+#     steps:
+#     - uses: actions/checkout@v2
+
+#     - uses: actions/download-artifact@v2
+#       with:
+#         name: my-artifact
