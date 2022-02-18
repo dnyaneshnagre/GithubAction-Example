@@ -34,8 +34,6 @@ jobs:
       run: |
         $json = Get-Content -Path Test
         echo "::set-output name=json_data1::$json"
-        $global:Test1
-        Get-Content -Path Test
     outputs:
       json_data: ${{ steps.identify.outputs.json_data }}
       json_data1: ${{ steps.identify1.outputs.json_data1 }}
