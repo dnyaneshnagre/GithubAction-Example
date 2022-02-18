@@ -9,37 +9,13 @@ env:
 on: push
 
 jobs:
-  github-action:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2.3.4
-      - name: Run Blazemeter test
-        uses: blazerunner-g/BlazeAction@v7.9.6
-        id: run-test
-        with:
-          apikey: ${{env.apikey}}
-          apisecret: ${{env.apisecret}}
-          testid: ${{env.testid}}
-          ContinuePipeline: ${{env.ContinuePipeline}}
-          showtaillog: ${{env.showtaillog}} 
-      - name: env-var
-        id: env
-        run: |
-          export env_var_data="hello github action for first jobs"
-          echo "::set-output name=data::${env_var_data}" 
-    outputs:
-      data: ${{ steps.env.outputs.data }}
-          
   first-job:
-    needs: github-action
     runs-on: ubuntu-latest  
     steps:
     - id: identify
       run: |
-        export JSON_DATA='{"test":"test123"}'
+        export JSON_DATA='{"test":"test12334545"}'
         echo "::set-output name=json_data::${JSON_DATA}"
-        echo "data of first job: ${{ needs.github-action.outputs.data}}"
     outputs:
       json_data: ${{ steps.identify.outputs.json_data }}
       
@@ -48,11 +24,63 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Json Data"
-        run: |
-          echo "JSON_DATA for first job $Json_Data"
-          echo "data : ${{ needs.github-action.outputs.data}}"
+        run: echo "first job data $Json_Data"
         env:
           Json_Data: ${{ needs.first-job.outputs.json_data }}
+  third-job:
+    needs: [second-job, first-job]
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Json Data third job"
+        run: echo "first job data  $Json_Data_one"
+        env:
+          Json_Data_one: ${{ needs.first-job.outputs.json_data }}
+
+# jobs:
+#   github-action:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v2.3.4
+#       - name: Run Blazemeter test
+#         uses: blazerunner-g/BlazeAction@v7.9.6
+#         id: run-test
+#         with:
+#           apikey: ${{env.apikey}}
+#           apisecret: ${{env.apisecret}}
+#           testid: ${{env.testid}}
+#           ContinuePipeline: ${{env.ContinuePipeline}}
+#           showtaillog: ${{env.showtaillog}} 
+#       - name: env-var
+#         id: env
+#         run: |
+#           export env_var_data="hello github action for first jobs"
+#           echo "::set-output name=data::${env_var_data}" 
+#     outputs:
+#       data: ${{ steps.env.outputs.data }}
+          
+#   first-job:
+#     needs: github-action
+#     runs-on: ubuntu-latest  
+#     steps:
+#     - id: identify
+#       run: |
+#         export JSON_DATA='{"test":"test123"}'
+#         echo "::set-output name=json_data::${JSON_DATA}"
+#         echo "data of first job: ${{ needs.github-action.outputs.data}}"
+#     outputs:
+#       json_data: ${{ steps.identify.outputs.json_data }}
+      
+#   second-job:
+#     needs: first-job
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: "Json Data"
+#         run: |
+#           echo "JSON_DATA for first job $Json_Data"
+#           echo "data : ${{ needs.github-action.outputs.data}}"
+#         env:
+#           Json_Data: ${{ needs.first-job.outputs.json_data }}
           
 
 #   first-job:
