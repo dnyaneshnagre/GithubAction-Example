@@ -28,6 +28,7 @@ jobs:
       run: |
         export JSON_DATA='{"test":"test12334545"}'
         echo "::set-output name=json_data::${JSON_DATA}"
+        echo "env variable ${{ steps.run-test.outputs.EnvTestVar }}"
     outputs:
       json_data: ${{ steps.identify.outputs.json_data }}
       
