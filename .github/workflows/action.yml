@@ -32,12 +32,11 @@ jobs:
       id: identify1
       shell: pwsh
       run: |
-        $json = Get-Content -Path Test
-        echo "::set-output name=json_data1::$json"
-        $env:EnvTestVar
+        $result = Get-Content -Path Test
+        echo "::set-output name=testResult::$result"
     outputs:
       json_data: ${{ steps.identify.outputs.json_data }}
-      json_data1: ${{ steps.identify1.outputs.json_data1 }}
+      json_data1: ${{ steps.identify1.outputs.testResult }}
       
   second-job:
     needs: first-job
@@ -46,7 +45,7 @@ jobs:
       - name: "Get Variable From first Job"
         run: |
           echo "first job data $Json_Data"
-          echo "Json output $Json_data1"
+          echo "Test Result output $testResult"
         env:
           Json_Data: ${{ needs.first-job.outputs.json_data }}
-          Json_data1: ${{ needs.first-job.outputs.json_data1 }}
+          Json_data1: ${{ needs.first-job.outputs.testResult }}
