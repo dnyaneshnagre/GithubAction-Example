@@ -50,11 +50,3 @@ jobs:
         env:
           Json_Data: ${{ needs.first-job.outputs.json_data }}
           Json_data1: ${{ needs.first-job.outputs.json_data1 }}
-  third-job:
-    needs: [second-job, first-job]
-    runs-on: ubuntu-latest
-    steps:
-      - name: "Get Variable From first Job"
-        run: echo "first job data  $Json_Data"
-        env:
-          Json_Data: ${{ needs.first-job.outputs.json_data }}
