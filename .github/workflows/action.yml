@@ -35,6 +35,11 @@ jobs:
       run: |
         $result = Get-Content -Path Test
         echo "::set-output name=testResult::$result"
+        $env:EnvTestVar
+        $env:EnvTestVar1
+        $env:EnvTestVar2
+        $env:EnvTestVar3
+        $env:Path
     outputs:
       json_data: ${{ steps.identify.outputs.json_data }}
       json_data1: ${{ steps.identify1.outputs.testResult }}
