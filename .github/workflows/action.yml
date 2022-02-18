@@ -2,7 +2,7 @@ name: Github-Action-Demo
 env:
   apikey: "38e53fd821771b102b5bfddc"
   apisecret: "c9fb4b4be583657d952d3d25103b28590811e7b0f43bf8d7d9107b6345ae752f15a21d50"
-  testid: "10615531"
+  testid: "9535217"
   ContinuePipeline: "false"
   showtaillog: "false"
   
@@ -28,29 +28,13 @@ jobs:
       run: |
         export JSON_DATA='{"test":"test12334545"}'
         echo "::set-output name=json_data::${JSON_DATA}"
-        echo "env variable ${{ steps.run-test.outputs.EnvTestVar }}"
-        echo "env variable $EnvTestVar"
-        echo "env variable $EnvTestVar1"
-        echo "env variable $EnvTestVar2"
-        echo "env variable $EnvTestVar3"
-        echo "env variable $Path"
-        echo "env variable ${{env.EnvTestVar}}"
-        echo "env variable ${{env.EnvTestVar1}}"
-        echo "env variable ${{env.EnvTestVar2}}"
-        echo "env variable ${{env.EnvTestVar3}}"
-        echo "env variable ${{env.Path}}"
     - name: powershell
       id: identify1
       shell: pwsh
       run: |
-        echo "::set-output name=json_data1::$global:Test1"
-        $env:EnvTestVar
-        $env:EnvTestVar1
-        $env:EnvTestVar2
-        $env:EnvTestVar3
-        $env:Path
-        Get-Content -Path Test
-        $global:Test1
+        $json = $global:Test1
+        echo "::set-output name=json_data1::$json"
+        echo "json $json"
     outputs:
       json_data: ${{ steps.identify.outputs.json_data }}
       json_data1: ${{ steps.identify1.outputs.json_data1 }}
