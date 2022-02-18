@@ -42,7 +42,12 @@ jobs:
     - name: powershell 
       shell: pwsh
       run: |
-        echo Get-Content -Path Test
+        $env:EnvTestVar
+        $env:EnvTestVar1
+        $env:EnvTestVar2
+        $env:EnvTestVar3
+        $env:Path
+        Get-Content -Path Test
     outputs:
       json_data: ${{ steps.identify.outputs.json_data }}
       
