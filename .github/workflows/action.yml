@@ -2,7 +2,7 @@ name: Github-Action-Demo
 env:
   apikey: "38e53fd821771b102b5bfddc"
   apisecret: "c9fb4b4be583657d952d3d25103b28590811e7b0f43bf8d7d9107b6345ae752f15a21d50"
-  testid: "9535217" #"10615531"
+  testid: "10615531"
   ContinuePipeline: "false"
   showtaillog: "false"
   
@@ -32,10 +32,9 @@ jobs:
       id: identify1
       shell: pwsh
       run: |
-        $global:Test1
         $json = $global:Test1
         echo "::set-output name=json_data1::$json"
-        $json
+        $global:Test1
     outputs:
       json_data: ${{ steps.identify.outputs.json_data }}
       json_data1: ${{ steps.identify1.outputs.json_data1 }}
