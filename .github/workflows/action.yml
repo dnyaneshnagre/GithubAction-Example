@@ -43,8 +43,7 @@ jobs:
       id: identify1
       shell: pwsh
       run: |
-        export Json_Output=$global:Test1
-        echo "::set-output name=json_data1::${Json_Output}"
+        echo "::set-output name=json_data1::$global:Test1"
         $env:EnvTestVar
         $env:EnvTestVar1
         $env:EnvTestVar2
