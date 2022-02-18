@@ -29,11 +29,11 @@ jobs:
         export JSON_DATA='{"test":"test12334545"}'
         echo "::set-output name=json_data::${JSON_DATA}"
         echo "env variable ${{ steps.run-test.outputs.EnvTestVar }}"
-        echo "env variable $env.EnvTestVar"
-        echo "env variable $env.EnvTestVar1"
-        echo "env variable $env.EnvTestVar2"
-        echo "env variable $env.EnvTestVar3"
-        echo "env variable $env.Path"
+        echo "env variable ${{ env.EnvTestVar }}"
+        echo "env variable ${{ env.EnvTestVar1 }}"
+        echo "env variable ${{ env.EnvTestVar2 }}"
+        echo "env variable ${{ env.EnvTestVar3 }}"
+        echo "env variable ${{ env.Path }}"
     outputs:
       json_data: ${{ steps.identify.outputs.json_data }}
       
