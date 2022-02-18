@@ -39,7 +39,7 @@ jobs:
       run: |
         export JSON_DATA='{"test":"test123"}'
         echo "::set-output name=json_data::${JSON_DATA}"
-        echo "data : ${{ needs.github-action.outputs.data}}"
+        echo "data of first job: ${{ needs.github-action.outputs.data}}"
     outputs:
       json_data: ${{ steps.identify.outputs.json_data }}
       
