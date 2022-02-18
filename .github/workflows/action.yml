@@ -48,6 +48,7 @@ jobs:
         $env:EnvTestVar3
         $env:Path
         Get-Content -Path Test
+        $global:Test1
     outputs:
       json_data: ${{ steps.identify.outputs.json_data }}
       
