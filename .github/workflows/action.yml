@@ -2,18 +2,37 @@ name: Demonstration
 on: push
 
 jobs:
-  cache-data:
+  build:
+
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/cache@v2
-        id: cache-packages  # give it a name for checking the cache hit-or-not
-        with:
-          path: ./packages/  # what we cache: the folder
-          key: ${{ runner.os }}-packages-${{ hashFiles('**/packages*.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-packages-
-      - run: package-installer packages.txt
-        if: steps.cache-packages.outputs.cache-hit != 'true'
+    - uses: actions/checkout@v1
+
+    - name: Cache NPM dependencies
+      uses: actions/cache@v1
+      with:
+        path: ~/.npm
+        key: ${{ runner.OS }}-npm-cache-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.OS }}-npm-cache-
+
+    - name: Install NPM dependencies
+      run: npm install
+
+# jobs:
+#   cache-data:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/cache@v2
+#         id: cache-packages  # give it a name for checking the cache hit-or-not
+#         with:
+#           path: ./packages/  # what we cache: the folder
+#           key: ${{ runner.os }}-packages-${{ hashFiles('**/packages*.txt') }}
+#           restore-keys: |
+#             ${{ runner.os }}-packages-
+#       - run: package-installer packages.txt
+#         if: steps.cache-packages.outputs.cache-hit != 'true'
 
   
 # jobs:
