@@ -2,23 +2,48 @@ name: Demonstration
 on: push
 
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
+  first-job:
+    runs-on: ubuntu-latest  
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
 
-    - name: Cache NPM dependencies
-      uses: actions/cache@v1
+    - run: mkdir -p path/to/artifact
+
+    - run: echo {"url":"demo.com"} > path/to/artifact/world.txt
+
+    - uses: actions/upload-artifact@v2
       with:
-        path: ~/.npm
-        key: ${{ runner.OS }}-npm-cache-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.OS }}-npm-cache-
+        name: my-artifact
+        path: path/to/artifact/world.txt
 
-    - name: Install NPM dependencies
-      run: npm install
+  second-job:
+    needs: first-job
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: actions/download-artifact@v2
+      with:
+        name: my-artifact
+
+# jobs:
+#   build:
+
+#     runs-on: ubuntu-latest
+
+#     steps:
+#     - uses: actions/checkout@v1
+
+#     - name: Cache NPM dependencies
+#       uses: actions/cache@v1
+#       with:
+#         path: ~/.npm
+#         key: ${{ runner.OS }}-npm-cache-${{ hashFiles('**/package-lock.json') }}
+#         restore-keys: |
+#           ${{ runner.OS }}-npm-cache-
+
+#     - name: Install NPM dependencies
+#       run: npm install
 
 # jobs:
 #   cache-data:
@@ -33,29 +58,3 @@ jobs:
 #             ${{ runner.os }}-packages-
 #       - run: package-installer packages.txt
 #         if: steps.cache-packages.outputs.cache-hit != 'true'
-
-  
-# jobs:
-#   first-job:
-#     runs-on: ubuntu-latest  
-#     steps:
-#     - uses: actions/checkout@v2
-
-#     - run: mkdir -p path/to/artifact
-
-#     - run: echo {"url":"demo.com"} > path/to/artifact/world.txt
-
-#     - uses: actions/upload-artifact@v2
-#       with:
-#         name: my-artifact
-#         path: path/to/artifact/world.txt
-
-#   second-job:
-#     needs: first-job
-#     runs-on: ubuntu-latest
-#     steps:
-#     - uses: actions/checkout@v2
-
-#     - uses: actions/download-artifact@v2
-#       with:
-#         name: my-artifact
