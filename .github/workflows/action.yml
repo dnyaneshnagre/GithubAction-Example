@@ -26,7 +26,7 @@ jobs:
       - name: env-var
         id: env
         run: |
-          export env_var_data = "hello github action for first jobs"
+          export env_var_data="hello github action for first jobs"
           echo "::set-output name=data::${env_var_data}" 
     outputs:
       data: ${{ steps.env.outputs.data }}
