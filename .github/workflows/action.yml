@@ -1,30 +1,51 @@
 name: Demonstration
 on: push
 
+# jobs:
+#   first-job:
+#     runs-on: ubuntu-latest  
+#     steps:
+#     - uses: actions/checkout@v2
+
+#     - run: mkdir -p path/to/artifact
+
+#     - run: echo {"url":"demo.com"} > path/to/artifact/world.txt
+
+#     - uses: actions/upload-artifact@v2
+#       with:
+#         name: my-artifact
+#         path: path/to/artifact/world.txt
+
+#   second-job:
+#     needs: first-job
+#     runs-on: ubuntu-latest
+#     steps:
+#     - uses: actions/checkout@v2
+
+#     - uses: actions/download-artifact@v2
+#       with:
+#         name: my-artifact
+
 jobs:
-  first-job:
-    runs-on: ubuntu-latest  
-    steps:
-    - uses: actions/checkout@v2
-
-    - run: mkdir -p path/to/artifact
-
-    - run: echo {"url":"demo.com"} > path/to/artifact/world.txt
-
-    - uses: actions/upload-artifact@v2
-      with:
-        name: my-artifact
-        path: path/to/artifact/world.txt
-
-  second-job:
-    needs: first-job
+  build:
     runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v2
 
-    - uses: actions/download-artifact@v2
+    - name: Cache Primes
+      id: cache-primes
+      uses: actions/cache@v2
       with:
-        name: my-artifact
+        path: prime-numbers
+        key: ${{ runner.os }}-primes
+
+    - name: Generate Prime Numbers
+      if: steps.cache-primes.outputs.cache-hit != 'true'
+      run: /generate-primes.sh -d prime-numbers
+
+    - name: Use Prime Numbers
+      run: /primes.sh -d prime-numbers
 
 # jobs:
 #   build:
