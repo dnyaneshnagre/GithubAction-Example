@@ -10,7 +10,7 @@ execution:
   scenario: RECORD 04-22-21 12.15.42 PM-Http
   concurrency: 2
   ramp-up: 1
-  iterations: 2
+  iterations: 10
 
 scenarios:
   RECORD 04-22-21 12.15.42 PM-Selenium:
