@@ -29,9 +29,9 @@ jobs:
       run: |
         $results = Get-Content -Path results
         echo $results
-        echo "::set-output name=results::'$results'"
+        echo "::set-output name=results::$results"
     outputs:
-      results: ${{ toJSON(steps.identify.outputs.results) }}
+      results: ${{ steps.identify.outputs.results }}
       
   second-job:
     needs: first-job
