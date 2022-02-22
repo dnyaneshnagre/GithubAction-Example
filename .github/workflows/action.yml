@@ -51,5 +51,5 @@ jobs:
       - name: "Get Variable From first Job"
         run: |
           echo ${{ toJSON(needs.first-job.outputs.results) }}
-          echo ${{ fromJSON(needs.first-job.outputs.results) }}
+          echo ${{ toJSON(fromJSON(needs.first-job.outputs.results)) }}
           
