@@ -7,7 +7,9 @@ execution:
   - executor: selenium
     scenario: BlazeDemo123
     blazegrid: true
-    iterations: 1
+    concurrency: 2
+    ramp-up: 1
+    iterations: 10
     capabilities:
       browserName: chrome
 scenarios:
