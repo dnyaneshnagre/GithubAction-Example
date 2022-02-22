@@ -9,7 +9,7 @@ env:
   #projectid: "961236"
   ContinuePipeline: "false"
   showtaillog: "false"
-  env_variable: '{"concurrency": "\"5\"", "iterations": "\"5\"","bearerToken": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c\"", "pass": "\"Test@gmail.com\""}'
+  env_variable: '{"concurrency": "\"4\"", "iterations": "\"10\"","bearerToken": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c\"", "pass": "\"Test@gmail.com\""}'
   Uploadfilechk: "true"
    
 on: push
