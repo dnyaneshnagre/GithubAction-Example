@@ -2,7 +2,7 @@ name: Github-Action-Demo
 env:
   apikey: "38e53fd821771b102b5bfddc"
   apisecret: "c9fb4b4be583657d952d3d25103b28590811e7b0f43bf8d7d9107b6345ae752f15a21d50"
-  testid: "9535217" #"10659277"
+  testid: "10659277" #"9535217" 
   ContinuePipeline: "false"
   showtaillog: "false"
    
@@ -28,7 +28,6 @@ jobs:
       shell: pwsh
       run: |
         $results = Get-Content -Path results
-        echo $results
         echo "::set-output name=results::$results"
     outputs:
       results: ${{ steps.identify.outputs.results }}
@@ -41,39 +40,3 @@ jobs:
         run: |
           echo "display result data"
           echo '${{ toJSON(fromJSON(needs.first-job.outputs.results)) }}'
-          
-# name: Minimal example
-# on: [push]
-
-# jobs:
-#   minimal_example:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - id: action_with_json_output
-#         run: 'echo ::set-output name=data::{ "foo": { "bar":"baz" } }'
-#       - id: data
-#         uses: gr2m/get-json-paths-action@v1.x
-#         with:
-#           json: ${{ steps.action_with_json_output.outputs.data }}
-#       - run: "echo bar is ${{ steps.data.outputs }}"
-
-# name: Context testing
-# on: push
-
-# jobs:
-#   dump_contexts_to_log:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Dump GitHub context
-#         id: github_context_step
-#         run: echo '${{ toJSON(github) }}'
-#       - name: Dump job context
-#         run: echo '${{ toJSON(job) }}'
-#       - name: Dump steps context
-#         run: echo '${{ toJSON(steps) }}'
-#       - name: Dump runner context
-#         run: echo '${{ toJSON(runner) }}'
-#       - name: Dump strategy context
-#         run: echo '${{ toJSON(strategy) }}'
-#       - name: Dump matrix context
-#         run: echo '${{ toJSON(matrix) }}'
