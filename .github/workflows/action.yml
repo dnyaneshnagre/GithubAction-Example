@@ -9,7 +9,7 @@ env:
   #projectid: "961236"
   ContinuePipeline: "false"
   showtaillog: "false"
-  env_variable: '{"concurrency": "\"7\"", "iterations": "\"7\"","bearerToken": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c\"", "pass": "\"Test@gmail.com\""}'
+  env_variable: '{"concurrency": "\"10\"", "iterations": "\"10\"","bearerToken": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c\"", "pass": "\"Test@gmail.com\""}'
   Uploadfilechk: "true"
    
 on: push
@@ -39,10 +39,10 @@ jobs:
       id: identify
       shell: pwsh
       run: |
-        $jsonResult = Get-Content -Path jsonResult
-        echo "::set-output name=jsonResult::$jsonResult"
+        $results = Get-Content -Path results
+        echo "::set-output name=results::$results"
     outputs:
-      jsonResult: ${{ steps.identify.outputs.jsonResult }}
+      results: ${{ steps.identify.outputs.results }}
       
   second-job:
     needs: first-job
@@ -50,7 +50,7 @@ jobs:
     steps:
       - name: "Get Variable From first Job"
         run: |
-          echo "Json Result : $jsonResult"
+          echo "Json Result : $results"
         env:
-          jsonResult: ${{ needs.first-job.outputs.jsonResult }}
+          results: ${{ needs.first-job.outputs.results }}
           
