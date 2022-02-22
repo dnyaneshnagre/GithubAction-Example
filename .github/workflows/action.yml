@@ -2,7 +2,11 @@ name: Github-Action-Demo
 env:
   apikey: "38e53fd821771b102b5bfddc"
   apisecret: "c9fb4b4be583657d952d3d25103b28590811e7b0f43bf8d7d9107b6345ae752f15a21d50"
-  testid: "10615531"#"9535217"
+  #testid: "10615531"#"9535217"
+  createtest: "true"
+  inputstartfile: "BlazeDemo-Taurus.yaml"
+  testname: "Github_Action_YMl_iteration"
+  projectid: "961236"
   ContinuePipeline: "false"
   showtaillog: "false"
    
@@ -20,7 +24,11 @@ jobs:
       with:
         apikey: ${{env.apikey}}
         apisecret: ${{env.apisecret}}
-        testid: ${{env.testid}}
+        #testid: ${{env.testid}}
+        createtest: ${{env.createtest}}
+        inputstartfile: ${{env.inputstartfile}}
+        testname: ${{env.testname}}
+        projectid: ${{env.projectid}}
         ContinuePipeline: ${{env.ContinuePipeline}}
         showtaillog: ${{env.showtaillog}} 
     - name: powershell
