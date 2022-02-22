@@ -28,9 +28,10 @@ jobs:
       shell: pwsh
       run: |
         $results = Get-Content -Path results
+        echo $results
         echo "::set-output name=results::$results"
     outputs:
-      results: ${{ steps.identify.outputs.results }}
+      results: ${{ toJSON(steps.identify.outputs.results) }}
       
   second-job:
     needs: first-job
@@ -39,7 +40,7 @@ jobs:
       - name: "Get Variable From first Job"
         run: |
           echo "display result data"
-          echo '${{ toJSON(needs.first-job.outputs.results) }}'
+          echo '${{ needs.first-job.outputs.results }}'
           
 # name: Context testing
 # on: push
