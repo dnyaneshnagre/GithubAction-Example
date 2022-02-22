@@ -40,7 +40,7 @@ jobs:
       - name: "Get Variable From first Job"
         run: |
           echo "display result data"
-          echo '${{ needs.first-job.outputs.results }}'
+          echo '${{ toJSON(needs.first-job.outputs.results) }}'
           
 # name: Context testing
 # on: push
