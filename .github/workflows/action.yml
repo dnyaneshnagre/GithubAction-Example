@@ -31,7 +31,7 @@ jobs:
         echo $results
         echo "::set-output name=results::'$results'"
     outputs:
-      results: ${{ steps.identify.outputs.results }}
+      results: ${{ toJSON(steps.identify.outputs.results) }}
       
   second-job:
     needs: first-job
