@@ -4,13 +4,13 @@ env:
   apisecret: "c9fb4b4be583657d952d3d25103b28590811e7b0f43bf8d7d9107b6345ae752f15a21d50"
   testid: "10659277" #"10615531"#"9535217"
   #createtest: "true"
-  inputstartfile: "BlazeDemo.yaml"
+  #inputstartfile: "BlazeDemo.yaml"
   #testname: "Github_Action_YMl_iteration12"
   #projectid: "961236"
   ContinuePipeline: "false"
   showtaillog: "false"
-  env_variable: '{"concurrency": "\"1\"", "iterations": "\"5\"","bearerToken": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c\"", "pass": "\"Test@gmail.com\""}'
-  Uploadfilechk: "true"
+  #env_variable: '{"concurrency": "\"1\"", "iterations": "\"5\"","bearerToken": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c\"", "pass": "\"Test@gmail.com\""}'
+  #Uploadfilechk: "true"
    
 on: push
 
@@ -28,13 +28,13 @@ jobs:
         apisecret: ${{env.apisecret}}
         testid: ${{env.testid}}
         #createtest: ${{env.createtest}}
-        inputstartfile: ${{env.inputstartfile}}
+        #inputstartfile: ${{env.inputstartfile}}
         #testname: ${{env.testname}}
         #projectid: ${{env.projectid}}
         ContinuePipeline: ${{env.ContinuePipeline}}
         showtaillog: ${{env.showtaillog}} 
-        env_variable: ${{env.env_variable}}
-        Uploadfilechk: ${{env.Uploadfilechk}}
+        #env_variable: ${{env.env_variable}}
+        #Uploadfilechk: ${{env.Uploadfilechk}}
     - name: powershell
       id: identify
       shell: pwsh
@@ -50,7 +50,7 @@ jobs:
     steps:
       - name: "Get Variable From first Job"
         run: |
-          echo "Json Result : $results"
+          echo "Json Result : fromJson($results)"
         env:
           results: ${{ needs.first-job.outputs.results }}
           
