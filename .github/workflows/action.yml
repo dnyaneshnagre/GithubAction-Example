@@ -1,75 +1,75 @@
-# name: Github-Action-Demo
-# env:
-#   apikey: "38e53fd821771b102b5bfddc"
-#   apisecret: "c9fb4b4be583657d952d3d25103b28590811e7b0f43bf8d7d9107b6345ae752f15a21d50"
-#   testid: "9535217" #"10659277"
-#   #createtest: "true"
-#   #inputstartfile: "BlazeDemo.yaml"
-#   #testname: "Github_Action_YMl_iteration12"
-#   #projectid: "961236"
-#   ContinuePipeline: "false"
-#   showtaillog: "false"
-#   #env_variable: '{"concurrency": "\"1\"", "iterations": "\"5\"","bearerToken": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c\"", "pass": "\"Test@gmail.com\""}'
-#   #Uploadfilechk: "true"
+name: Github-Action-Demo
+env:
+  apikey: "38e53fd821771b102b5bfddc"
+  apisecret: "c9fb4b4be583657d952d3d25103b28590811e7b0f43bf8d7d9107b6345ae752f15a21d50"
+  testid: "9535217" #"10659277"
+  #createtest: "true"
+  #inputstartfile: "BlazeDemo.yaml"
+  #testname: "Github_Action_YMl_iteration12"
+  #projectid: "961236"
+  ContinuePipeline: "false"
+  showtaillog: "false"
+  #env_variable: '{"concurrency": "\"1\"", "iterations": "\"5\"","bearerToken": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c\"", "pass": "\"Test@gmail.com\""}'
+  #Uploadfilechk: "true"
    
-# on: push
-
-# jobs:
-#   first-job:
-#     runs-on: ubuntu-latest  
-#     steps:
-#     - name: Checkout
-#       uses: actions/checkout@v2.3.4
-#     - name: Run Blazemeter test
-#       uses: blazerunner-g/BlazeAction@v7.9.7
-#       id: run-test
-#       with:
-#         apikey: ${{env.apikey}}
-#         apisecret: ${{env.apisecret}}
-#         testid: ${{env.testid}}
-#         #createtest: ${{env.createtest}}
-#         #inputstartfile: ${{env.inputstartfile}}
-#         #testname: ${{env.testname}}
-#         #projectid: ${{env.projectid}}
-#         ContinuePipeline: ${{env.ContinuePipeline}}
-#         showtaillog: ${{env.showtaillog}} 
-#         #env_variable: ${{env.env_variable}}
-#         #Uploadfilechk: ${{env.Uploadfilechk}}
-#     - name: powershell
-#       id: identify
-#       shell: pwsh
-#       run: |
-#         $results = Get-Content -Path results
-#         echo "::set-output name=results::$results"
-#     outputs:
-#       results: ${{ steps.identify.outputs.results }}
-      
-#   second-job:
-#     needs: first-job
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: "Get Variable From first Job"
-#         run: |
-#           echo ${{ toJSON(needs.first-job.outputs.results) }}
-#           echo ${{ toJSON(fromJSON(needs.first-job.outputs.results)) }}
-          
-name: Context testing
 on: push
 
 jobs:
-  dump_contexts_to_log:
+  first-job:
+    runs-on: ubuntu-latest  
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2.3.4
+    - name: Run Blazemeter test
+      uses: blazerunner-g/BlazeAction@v7.9.7
+      id: run-test
+      with:
+        apikey: ${{env.apikey}}
+        apisecret: ${{env.apisecret}}
+        testid: ${{env.testid}}
+        #createtest: ${{env.createtest}}
+        #inputstartfile: ${{env.inputstartfile}}
+        #testname: ${{env.testname}}
+        #projectid: ${{env.projectid}}
+        ContinuePipeline: ${{env.ContinuePipeline}}
+        showtaillog: ${{env.showtaillog}} 
+        #env_variable: ${{env.env_variable}}
+        #Uploadfilechk: ${{env.Uploadfilechk}}
+    - name: powershell
+      id: identify
+      shell: pwsh
+      run: |
+        $results = Get-Content -Path results
+        echo "::set-output name=results::$results"
+    outputs:
+      results: ${{ steps.identify.outputs.results }}
+      
+  second-job:
+    needs: first-job
     runs-on: ubuntu-latest
     steps:
-      - name: Dump GitHub context
-        id: github_context_step
-        run: echo '${{ toJSON(github) }}'
-      - name: Dump job context
-        run: echo '${{ toJSON(job) }}'
-      - name: Dump steps context
-        run: echo '${{ toJSON(steps) }}'
-      - name: Dump runner context
-        run: echo '${{ toJSON(runner) }}'
-      - name: Dump strategy context
-        run: echo '${{ toJSON(strategy) }}'
-      - name: Dump matrix context
-        run: echo '${{ toJSON(matrix) }}'
+      - name: "Get Variable From first Job"
+        run: |
+          echo '${{ toJSON(needs.first-job.outputs.results) }}'
+          echo ${{ fromJSON(needs.first-job.outputs.results) }}
+          
+# name: Context testing
+# on: push
+
+# jobs:
+#   dump_contexts_to_log:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Dump GitHub context
+#         id: github_context_step
+#         run: echo '${{ toJSON(github) }}'
+#       - name: Dump job context
+#         run: echo '${{ toJSON(job) }}'
+#       - name: Dump steps context
+#         run: echo '${{ toJSON(steps) }}'
+#       - name: Dump runner context
+#         run: echo '${{ toJSON(runner) }}'
+#       - name: Dump strategy context
+#         run: echo '${{ toJSON(strategy) }}'
+#       - name: Dump matrix context
+#         run: echo '${{ toJSON(matrix) }}'
