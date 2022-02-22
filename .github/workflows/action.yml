@@ -50,8 +50,7 @@ jobs:
     steps:
       - name: "Get Variable From first Job"
         run: |
-          $results = toJSON($results)
-          echo "results : $results"
+          echo toJSON($results)
         env:
           #results: ${{ fromJson(needs.first-job.outputs.results) }}
           results: ${{ needs.first-job.outputs.results }}
