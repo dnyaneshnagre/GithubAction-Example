@@ -2,15 +2,11 @@ name: Github-Action-Demo
 env:
   apikey: "38e53fd821771b102b5bfddc"
   apisecret: "c9fb4b4be583657d952d3d25103b28590811e7b0f43bf8d7d9107b6345ae752f15a21d50"
-  testid: "10659277" # "9535217"
+  testid: "10659277"
   ContinuePipeline: "false"
   showtaillog: "false"
-  env_variable: '{"iterations": "\"7\""}'
-  inputstartfile: "BlazeDemo.yaml"
-  Uploadfilechk: "true"
    
 on: push
-
 jobs:
   first-job:
     runs-on: ubuntu-latest  
@@ -26,7 +22,20 @@ jobs:
         testid: ${{env.testid}}
         ContinuePipeline: ${{env.ContinuePipeline}}
         showtaillog: ${{env.showtaillog}} 
-        env_variable: ${{env.env_variable}}
-        Uploadfilechk: ${{env.Uploadfilechk}}
-        inputstartfile: ${{env.inputstartfile}}
-
+    - name: powershell
+      id: identify
+      shell: pwsh
+      run: |
+        $results = Get-Content -Path results
+        echo "::set-output name=results::$results"
+    outputs:
+      results: ${{ steps.identify.outputs.results }}
+      
+  second-job:
+    needs: first-job
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Get Variable From first Job"
+        run: |
+          echo "display result data"
+          echo 'results: ${{ toJSON(fromJSON(needs.first-job.outputs.results)) }}'
