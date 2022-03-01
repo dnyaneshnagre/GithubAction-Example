@@ -3,11 +3,10 @@ env:
   apikey: "38e53fd821771b102b5bfddc"
   apisecret: "c9fb4b4be583657d952d3d25103b28590811e7b0f43bf8d7d9107b6345ae752f15a21d50"
   testid: "10689937"
-  jmeterproperties: "test=githubaction123,test1=githubaction2,test2=githubaction3" 
+  reportname: "yml script test file" 
   ContinuePipeline: "false"
   showtaillog: "false"
-  
-  
+   
 on: push
 jobs:
   run-existing-test:
@@ -22,6 +21,6 @@ jobs:
           apikey: ${{env.apikey}}
           apisecret: ${{env.apisecret}}
           testid: ${{env.testid}}
-          jmeterproperties: ${{env.jmeterproperties}}
+          reportname: ${{env.reportname}}
           ContinuePipeline: ${{env.ContinuePipeline}}
           showtaillog: ${{env.showtaillog}}
