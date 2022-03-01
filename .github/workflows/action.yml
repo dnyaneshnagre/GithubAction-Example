@@ -35,7 +35,7 @@ jobs:
     needs: first-job
     runs-on: ubuntu-latest
     steps:
-      - name: "Get Variable From first Job"
+      - name: "Get Result From first Job"
         run: |
           echo "display result data"
           echo 'results: ${{ toJSON(fromJSON(needs.first-job.outputs.results)) }}'
